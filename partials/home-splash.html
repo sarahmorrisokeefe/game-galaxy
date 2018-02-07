@@ -1,0 +1,45 @@
+<h4 class="center">
+  Welcome to the {{title}} page
+</h4>
+
+<div class="center">
+  {{blog}}
+</div>
+
+<div class="editorBox">
+<ng-quill-editor ng-model="blog">
+  <ng-quill-toolbar>
+    <div>
+      <span class="ql-formats">
+        <button class="ql-bold" ng-attr-title="{{'Bold'}}"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-align" ng-attr-title="{{'Aligment'}}">
+          <option selected></option>
+          <option value="center"></option>
+          <option value="right"></option>
+          <option value="justify"></option>
+        </select>
+        <select class="ql-size">
+          <option value="small"></option>
+          <option selected></option>
+          <option value="large"></option>
+          <option value="huge"></option>
+        </select>
+        <button class="ql-bold"></button>
+        <button class="ql-script" value="sub"></button>
+        <button class="ql-script" value="super"></button>
+        <button class="ql-image"></button>
+      </span>
+    </div>
+  </ng-quill-toolbar>
+</ng-quill-editor>
+</div>
+
+<div class="center">
+<button ng-click="submitBlog()">Submit Blog</button>
+</div>
+
+<div class="editorBox">
+<dir-disqus config="disqusConfig"></dir-disqus>
+</div>
