@@ -11,7 +11,8 @@ angular
       header: "",
       body: "",
       date: "",
-      uid: ""
+      uid: "",
+      author: ""
     };
 
     $scope.submitBlog = () => {
@@ -22,6 +23,7 @@ angular
     firebase.auth().onAuthStateChanged(function(user) {
       if(user) {
         $scope.blog.uid = firebase.auth().currentUser.uid;
+        $scope.blog.author = firebase.auth().currentUser.displayName;        
       }
     });
     
