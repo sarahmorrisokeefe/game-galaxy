@@ -1,45 +1,25 @@
-<h4 class="center">
-  Welcome to the {{title}} page
-</h4>
-
-<div class="center">
-  {{blog}}
+<div class="jumbotron center">
+  <h2 class="display-4 center"><span class="fancy">WELCOME TO THE</span> <br> <span class="feature-text">Galaxy</span> </h2>
+  <p class="lead">Register for an account today to begin blogging. <br> Review games, theorize conspiracies, interpret stories; write what YOU want to write about games. <br> Hear back from the community and let your voice be heard! <br> This universe is all about GAMES</p>
+  <hr class="my-4">
+  <p>Join our galaxy and let us hear about your world</p>
+  <p class="lead">
+    <a class="btn btn-success btn-lg" href="#" role="button">Register Now!</a>
+  </p>
 </div>
+
+<br>
+
+<!-- <div class="jumbotron center">
+  <h1 class="display-4 center">Hello, world!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div> -->
 
 <div class="editorBox">
-<ng-quill-editor ng-model="blog">
-  <ng-quill-toolbar>
-    <div>
-      <span class="ql-formats">
-        <button class="ql-bold" ng-attr-title="{{'Bold'}}"></button>
-      </span>
-      <span class="ql-formats">
-        <select class="ql-align" ng-attr-title="{{'Aligment'}}">
-          <option selected></option>
-          <option value="center"></option>
-          <option value="right"></option>
-          <option value="justify"></option>
-        </select>
-        <select class="ql-size">
-          <option value="small"></option>
-          <option selected></option>
-          <option value="large"></option>
-          <option value="huge"></option>
-        </select>
-        <button class="ql-bold"></button>
-        <button class="ql-script" value="sub"></button>
-        <button class="ql-script" value="super"></button>
-        <button class="ql-image"></button>
-      </span>
-    </div>
-  </ng-quill-toolbar>
-</ng-quill-editor>
-</div>
-
-<div class="center">
-<button ng-click="submitBlog()">Submit Blog</button>
-</div>
-
-<div class="editorBox">
-<dir-disqus config="disqusConfig"></dir-disqus>
+  <dir-disqus config="disqusConfig"></dir-disqus>
 </div>

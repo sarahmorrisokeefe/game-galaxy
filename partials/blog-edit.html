@@ -1,0 +1,62 @@
+<h4 class="center">
+  Welcome to the {{title}} page
+</h4>
+
+<div class="editorBox">
+    <form>
+      <div class="form-group">
+        <label for="blogTitle">Title</label>
+        <input type="text" class="form-control" id="blogTitle" ng-model="blog.title" aria-describedby="blogTitle" placeholder="Pick a nifty and descriptive title">
+        <small id="blogTitle" class="form-text text-muted">The title will draw users to your post as well as will be the primary element users find your content when searching</small>
+      </div>
+      <div class="form-group">
+        <label for="headerImg">Header Image URL</label>
+        <input type="text" class="form-control" id="headerImg" ng-model="blog.header" placeholder="Paste image address here...">
+      </div>
+    </form>
+  </div>
+  
+  <div class="editorBox">
+  <ng-quill-editor ng-model="blog.body">
+    <ng-quill-toolbar>
+      <div>
+        <span class="ql-formats">
+          <button class="ql-bold" ng-attr-title="{{'Bold'}}"></button>
+        </span>
+        <span class="ql-formats">
+          <select class="ql-align" ng-attr-title="{{'Aligment'}}">
+            <option selected></option>
+            <option value="center"></option>
+            <option value="right"></option>
+            <option value="justify"></option>
+          </select>
+          <select class="ql-size">
+            <option value="small"></option>
+            <option selected></option>
+            <option value="large"></option>
+            <option value="huge"></option>
+          </select>
+          <button class="ql-script" value="sub"></button>
+          <button class="ql-script" value="super"></button>
+          <button class="ql-image"></button>
+        </span>
+      </div>
+    </ng-quill-toolbar>
+  </ng-quill-editor>
+  </div>
+  
+  <div class="center">
+    <button type="submit" class="btn btn-success" ng-click="submitBlog()">Submit</button>
+  </div>
+  
+  <br>
+  
+  <div class="center">
+      <h4>Preview:</h4>
+  </div>
+    
+  <p class="editorBox">{{blog.body}}</p>
+
+  <div class="editorBox">
+  <dir-disqus config="disqusConfig2"></dir-disqus>
+  </div>

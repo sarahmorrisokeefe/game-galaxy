@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="stylesheets/main.css">
+  <link rel="icon" type="image/png" href="img/favicon.ico"/>
   <title>Game Galaxy</title>
 </head>
 
@@ -17,24 +18,36 @@
     <div ng-view></div>
   </main>
   <div ng-include=" 'partials/footer.html' "></div>
-  <!-- - -->
+
+  <!-- CDNs and stuff -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
   <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
   <script src="node_modules/firebase/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
   <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-quill/3.5.1/ng-quill.min.js"></script>
   <script src="node_modules/angular-utils-disqus/dirDisqus.js"></script>
-  <!-- - -->
+  <script src="/node_modules/angular-sanitize/angular-sanitize.js"></script>
+  <!-- setup -->
   <script src="app/app.js"></script>
-  <script src="app/controllers/nav-ctrl.js"></script>
+  <script src="app/values/fb-creds.js"></script>
+  <!-- factories -->
+  <script src="app/factories/auth-factory.js"></script>
+  <script src="app/factories/blogs-factory.js"></script>
+  <script src="app/factories/users-factory.js"></script>  
+  <!-- controllers -->
+  <script src="app/controllers/blog-ctrl.js"></script> 
+  <script src="app/controllers/blog-new-ctrl.js"></script>   
+  <script src="app/controllers/blog-edit-ctrl.js"></script>    
+  <script src="app/controllers/community-ctrl.js"></script>    
+  <script src="app/controllers/discover-ctrl.js"></script>
   <script src="app/controllers/footer-ctrl.js"></script>  
   <script src="app/controllers/home-ctrl.js"></script>  
-  <script src="app/controllers/blog-ctrl.js"></script> 
-  <script src="app/controllers/blogs-ctrl.js"></script>    
-  <script src="app/controllers/blog-edit-ctrl.js"></script>    
+  <script src="app/controllers/nav-ctrl.js"></script>
+  <script src="app/controllers/profile-ctrl.js"></script>            
 </body>
 
 </html>
