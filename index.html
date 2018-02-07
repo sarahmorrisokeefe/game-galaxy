@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <title>Game Galaxy</title>
+</head>
+
+<body ng-app="GameGalaxy">
+  <div ng-include=" 'partials/navbar.html' "></div>
+  <main>
+    <div ng-view></div>
+  </main>
+  <div ng-include=" 'partials/footer.html' "></div>
+  <!-- - -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+  <script src="node_modules/firebase/firebase.js"></script>
+  <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-quill/3.5.1/ng-quill.min.js"></script>
+  <script src="node_modules/angular-utils-disqus/dirDisqus.js"></script>
+  <!-- - -->
+  <script src="app/app.js"></script>
+  <script src="app/controllers/nav-ctrl.js"></script>
+  <script src="app/controllers/footer-ctrl.js"></script>  
+  <script src="app/controllers/home-ctrl.js"></script>  
+  <script src="app/controllers/blog-ctrl.js"></script> 
+  <script src="app/controllers/blogs-ctrl.js"></script>    
+  <script src="app/controllers/blog-edit-ctrl.js"></script>    
+</body>
+
+</html>
