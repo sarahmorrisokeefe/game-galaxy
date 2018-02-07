@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('GameGalaxy', ["ngRoute", "ngQuill", "angularUtils.directives.dirDisqus"])
+  .module('GameGalaxy', ["ngRoute", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize"])
   .constant("FBUrl", "https://galaxy-game-blog.firebaseio.com/")
   .config($routeProvider => {
     $routeProvider
@@ -9,9 +9,9 @@ angular
         templateUrl: "partials/home-splash.html",
         controller: "HomeCtrl"
       })
-      .when("/blogs", {
-        templateUrl: "partials/blogs.html",
-        controller: "BlogsCtrl",
+      .when("/discover", {
+        templateUrl: "partials/discover.html",
+        controller: "DiscoverCtrl",
         // resolve: { isAuth }
       })
       .when("/community", {
@@ -29,6 +29,11 @@ angular
         controller: "ProfileCtrl",
         // resolve: { isAuth }
       })
+      .when("/blogs/new", {
+        templateUrl: "partials/blog-edit.html",
+        controller: "BlogNewCtrl",
+        // resolve: { isAuth }
+      })
       .when("/blogs/:id", {
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
@@ -40,4 +45,11 @@ angular
         // resolve: { isAuth }
       })
       .otherwise("/home");
+  })
+  .run(FBCreds => {
+    let authConfig = {
+        apiKey: FBCreds.apiKey,
+        authDomain: FBCreds.authDomain
+    };
+    firebase.initializeApp(authConfig);
   });

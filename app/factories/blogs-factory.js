@@ -1,0 +1,39 @@
+"use strict";
+
+angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
+
+  function submitNewBlog(blogObject) {
+    return $q((resolve, reject) => {
+      $http
+        .post(`${FBUrl}/blogs.json`, JSON.stringify(blogObject))
+        .then(data => {
+          console.log("New Item posted", data);
+          resolve(data);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
+
+  function getAllBlogs() {
+    // returns a promise for all images from the blogs collection in firebase
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/blogs.json`)
+      .then(({ data }) => {
+        let blogsArr = Object.keys(data).map(blogKey => {
+          data[blogKey].id = blogKey;
+          return (data[blogKey]);
+        });
+        resolve(Object.values(data));
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  return { submitNewBlog, getAllBlogs };
+
+});

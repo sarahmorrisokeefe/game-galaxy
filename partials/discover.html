@@ -1,0 +1,19 @@
+<h4 class="center">
+  Welcome to the {{title}} page
+</h4>
+
+<div class="discoverBox">
+    <div>
+        <div class="card" ng-repeat="blog in blogs">
+          <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{blog.title}}</h5>
+            <!-- <p ng-bind-html="blog.body"></p> -->
+            <button type="submit" class="btn btn-info">Read More</button>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last edited on {{blog.date}}</small>
+          </div>
+        </div>
+      </div>
+</div>
