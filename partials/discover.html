@@ -4,7 +4,7 @@
 
 <div class="discoverBox">
     <div>
-        <div class="card" ng-repeat="blog in blogs">
+        <div class="card" ng-repeat="blog in blogs | limitTo: limit">
           <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>

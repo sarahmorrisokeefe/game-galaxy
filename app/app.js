@@ -38,7 +38,7 @@ angular
         controller: "MeCtrl",
         // resolve: { isAuth }
       })
-      .when("/community/:id", {
+      .when("/community/:uid", {
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
         // resolve: { isAuth }

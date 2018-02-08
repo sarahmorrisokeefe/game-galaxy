@@ -5,6 +5,8 @@ angular
   .controller('DiscoverCtrl', function($scope, BlogsFactory) {
     $scope.title = "Discover";
 
+    $scope.limit = 3;
+
     // Shuffle array function courtesy of Hunter. What a badass
 
     const shuffleArr = (array) => {

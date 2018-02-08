@@ -20,10 +20,11 @@ angular
       AuthFactory.logout()
       .then(() => {
         console.log("see ya later");
+        $("#navbarDropdown").dropdown('toggle');
         $window.location.href = "#!/home";
       });
     };
-
+    
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
           $scope.$apply($scope.user = true);
