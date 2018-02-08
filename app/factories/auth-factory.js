@@ -2,6 +2,8 @@
 
 angular.module("GameGalaxy").factory("AuthFactory", (FBCreds, $q) => {
 
+  let user = null;
+
   function login() {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({
@@ -14,5 +16,19 @@ angular.module("GameGalaxy").factory("AuthFactory", (FBCreds, $q) => {
     return firebase.auth().signOut();
   }
 
-  return {login, logout};
+  function usercheck() {
+    return $q((resolve, reject) => {
+      firebase.auth().onAuthStateChanged( (user) => {
+        console.log("auth persisted");
+        if (user) {
+          user = user.uid;
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
+  };
+
+  return {login, logout, usercheck};
 });

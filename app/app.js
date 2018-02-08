@@ -1,5 +1,19 @@
 'use strict';
 
+let authenticate = (AuthFactory) =>
+  new Promise((resolve, reject) => {
+    AuthFactory.usercheck().then(user => {
+      console.log(user);
+      if (user) {
+        console.log("User check - true");
+        resolve();
+      } else {
+        console.log("User check - false");
+        reject();
+      }
+  });
+});
+
 angular
   .module('GameGalaxy', ["ngRoute", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize"])
   .constant("FBUrl", "https://galaxy-game-blog.firebaseio.com/")
@@ -32,7 +46,7 @@ angular
       .when("/blogs/new", {
         templateUrl: "partials/blog-edit.html",
         controller: "BlogNewCtrl",
-        // resolve: { isAuth }
+        resolve: { authenticate }
       })
       .when("/blogs/:id", {
         templateUrl: "partials/blog.html",
