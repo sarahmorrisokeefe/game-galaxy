@@ -2,15 +2,20 @@
 
 angular
   .module('GameGalaxy')
-  .controller('HomeCtrl', function($scope, $routeParams) {
+  .controller('MeCtrl', function($scope, $routeParams, UserFactory) {
 
-    $scope.title = "Home";
+    $scope.title = "Profile";
 
-    $scope.disqusConfig = {
-      disqus_shortname: 'gamegalaxy',
-      disqus_identifier: $routeParams.uid,
-      disqus_url: `http://localhost:8080/#!/community/${$routeParams.uid}`,
-      disqus_title: 'Home'
-      // disqus_developer: 1
+    $scope.user = {
+      nickname: "",
+      genre: "",
+      bio: "",
+      customPhoto: ""
     };
+
+    $scope.clickSubmit = () => {
+      UserFactory.addNewUser($scope.user);
+      console.log('new user added to database');
+    };
+
   });

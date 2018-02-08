@@ -1,3 +1,35 @@
-<p>
-  Welcome to the {{title}} page
-</p>
+<h4 class="center">
+  Edit your {{title}} below
+</h4>
+
+<form class="discoverBox text-left">
+  <div class="form-group">
+    <label for="userNickname">Display Name</label>
+    <input type="text" class="form-control" id="userNickname" placeholder="Your nickname for the site..." ng-model="user.nickname">
+  </div>
+  <div class="form-group">
+    <label for="userGenre">Favorite Genre</label>
+    <select multiple class="form-control" id="userGenre" ng-model="user.genre">
+      <option>Action</option>
+      <option>Adventure</option>
+      <option>Role-Playing</option>
+      <option>Sports</option>
+      <option>Strategy</option>
+      <option>Simulation</option>      
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="userBio">Bio</label>
+    <textarea class="form-control" ng-model="user.bio" id="userBio" rows="3" placeholder="Tell everyone a little about your story, your interests, and your pets here..."></textarea>
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="customPhoto">Update Your Profile Picture</label>
+      <input type="file" class="form-control-file" id="customPhoto" ng-model="user.customPhoto">
+    </div>
+  </form>
+</form>
+
+<div class="center">
+<button type="button" class="btn btn-info center" ng-click="clickSubmit()">Update</button>
+</div>
