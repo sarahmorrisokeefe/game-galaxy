@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('DiscoverCtrl', function($scope, BlogsFactory, $sanitize) {
+  .controller('DiscoverCtrl', function($scope, BlogsFactory) {
     $scope.title = "Discover";
 
     // Shuffle array function courtesy of Hunter. What a badass

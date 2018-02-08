@@ -1,3 +1,22 @@
-<p>
-  Welcome to the {{title}} page
-</p>
+<div class="card bg-dark text-white">
+  <img class="card-img" src="{{thisBlog.header}}" alt="Card image">
+  <div class="card-img-overlay">
+    <h5 class="card-title header-overlay">{{thisBlog.title}}</h5>
+    <div class="header-photo-box">
+      <img src="{{thisBlog.userphoto}}" class="header-user-photo">
+    </div>
+    <h2 class="center header-overlay subtitle"><a class="white author-link" href="#!/community/{{thisBlog.uid}}">by {{thisBlog.author}}</a></h2>    
+    <p class="card-text header-overlay subtitle">Last updated {{thisBlog.date}}</p>
+  </div>
+</div>
+
+<div class="jumbotron center">
+  <p class="lead" ng-bind-html="thisBlog.body"></p>
+  <hr class="my-4">
+  <p class="fancy upscale">Join the conversation. Comment below and let your voice be heard in the galaxy</p>
+  <p class="lead">
+    <div class="editorBox">
+      <dir-disqus config="disqusConfig"></dir-disqus>
+    </div>    
+  </p>
+</div>

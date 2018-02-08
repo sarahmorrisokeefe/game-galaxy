@@ -86,3 +86,48 @@ main {
   max-width: 15vw;
   margin-bottom: 2vh;
 }
+
+.header-overlay {
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-family: "Press Start 2P";
+  background: rgba(0, 0, 0, .5);
+  padding: 2vh;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: .5rem;
+}
+
+.upscale {
+  font-size: 1em;
+}
+
+.header-photo-box {
+  background: rgba(0, 0, 0, .5);
+  margin: 0;
+}
+
+.header-user-photo {
+  max-width: 12vw;
+  max-height: 12vh;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, .5);
+  margin: 0;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.header-user-photo:hover {
+  box-shadow: 0px 0px 5px 3px rgba(170, 216, 218, 0.7);
+  transform: scale(1.2);
+}
+
+.author-link {
+  transition: color 0.3s;
+}
+
+.author-link:hover {
+  text-decoration: none;
+  color: lightblue;
+}

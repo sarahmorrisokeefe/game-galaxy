@@ -12,7 +12,7 @@ angular
           console.log("Yay, logged in", user);
       })
       .catch(err => {
-          console.log("error", err);
+          console.log("You're supposed to login you goober.");
       });
     };
 

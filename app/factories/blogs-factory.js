@@ -34,6 +34,19 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
     });
   }
 
-  return { submitNewBlog, getAllBlogs };
+  function getThisBlog(blogId) {
+    return $q((resolve, reject) => {
+      $http
+        .get(`${FBUrl}/blogs/${blogId}.json`)
+        .then(item => {
+          resolve(item.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
+  return { submitNewBlog, getAllBlogs, getThisBlog };
 
 });
