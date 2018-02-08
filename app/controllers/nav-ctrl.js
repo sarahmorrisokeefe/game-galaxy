@@ -21,7 +21,15 @@ angular
       .then(() => {
         console.log("see ya later");
         $window.location.href = "#!/home";
-      })
+      });
     };
 
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+          $scope.$apply($scope.user = true);
+      } else {
+          $scope.$apply($scope.user = false);
+      }
+    });
+    
   });

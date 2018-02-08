@@ -18,6 +18,7 @@ angular
 
     $scope.submitBlog = () => {
       BlogsFactory.submitNewBlog($scope.blog);
+      $('.alert').alert();
       console.log("Submitted!");
     };
 

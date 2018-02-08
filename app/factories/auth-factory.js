@@ -28,7 +28,7 @@ angular.module("GameGalaxy").factory("AuthFactory", (FBCreds, $q) => {
         }
       });
     });
-  };
+  }
 
   return {login, logout, usercheck};
 });
