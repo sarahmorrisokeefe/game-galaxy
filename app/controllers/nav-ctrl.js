@@ -6,6 +6,8 @@ angular
 
     $scope.brand = "Game Galaxy";
 
+    $scope.title = "";
+
     $scope.loginUser = () => {
       AuthFactory.login()
       .then((user) => {
@@ -24,7 +26,7 @@ angular
         $window.location.href = "#!/home";
       });
     };
-    
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
           $scope.$apply($scope.user = true);

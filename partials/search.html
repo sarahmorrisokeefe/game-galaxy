@@ -1,0 +1,19 @@
+<h4 class="center">
+  Welcome to the {{title}} page
+</h4>
+
+<div class="discoverBox">
+    <div>
+        <div class="card" ng-repeat="search in blogs">
+          <img class="card-img-top" src="{{search.header}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{search.title}}</h5>
+            <h6 class="card-title">Published by {{search.author}}</h6>            
+            <a href="#!/blogs/{{search.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated on {{search.date}}</small>
+          </div>
+        </div>
+      </div>
+</div>

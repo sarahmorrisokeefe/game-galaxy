@@ -47,6 +47,26 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
     });
   }
 
-  return { submitNewBlog, getAllBlogs, getThisBlog };
+  function searchBlogs(title) {
+    console.log("clicked search");
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/blogs.json?orderBy="title"&equalTo="${title}"`)
+      .then(({ data }) => {
+        console.log("search data returned", data);
+        let searchArr = Object.keys(data).map(blogKey => {
+          data[blogKey].id = blogKey;
+          return (data[blogKey]);
+        });
+        resolve(Object.values(data));
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+  
+  
+
+  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs };
 
 });

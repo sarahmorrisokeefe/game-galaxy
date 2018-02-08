@@ -8,7 +8,7 @@ angular
 
     BlogsFactory.getThisBlog($routeParams.id)
         .then(item => {
-      console.log(item);
+      console.log('item', item);
       item.id = $routeParams.id;
       $scope.thisBlog = item;
     });

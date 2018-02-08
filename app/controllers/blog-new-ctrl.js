@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('BlogNewCtrl', function($scope, BlogsFactory) {
+  .controller('BlogNewCtrl', function($scope, BlogsFactory, $window, $route) {
 
     $scope.title = "New Blog Post";
 
@@ -16,17 +16,25 @@ angular
       userphoto: ""
     };
 
+    $scope.popTheToast = () => {
+      var toast = document.getElementById("toastAlert");
+      toast.className = "show";
+      $window.setTimeout(function() {toast.className = toast.className.replace("show", "");}, 3000);
+    };
+
     $scope.submitBlog = () => {
       BlogsFactory.submitNewBlog($scope.blog);
       $('.alert').alert();
-      console.log("Submitted!");
+      console.log("New article submitted to database");
+      $scope.popTheToast();
+      $window.location.href = "#!/discover";
     };
 
     firebase.auth().onAuthStateChanged(function(user) {
       if(user) {
         $scope.blog.uid = firebase.auth().currentUser.uid;
         $scope.blog.author = firebase.auth().currentUser.displayName;     
-        $scope.blog.author = firebase.auth().currentUser.photoURL;                   
+        $scope.blog.userphoto = firebase.auth().currentUser.photoURL;                   
       }
     });
     

@@ -3,7 +3,6 @@
 let authenticate = (AuthFactory) =>
   new Promise((resolve, reject) => {
     AuthFactory.usercheck().then(user => {
-      console.log(user);
       if (user) {
         console.log("User check - true");
         resolve();
@@ -56,6 +55,11 @@ angular
       .when("/blogs/:id/edit", {
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
+        // resolve: { isAuth }
+      })
+      .when("/search/:title", {
+        templateUrl: "partials/search.html",
+        controller: "SearchCtrl",
         // resolve: { isAuth }
       })
       .otherwise("/home");

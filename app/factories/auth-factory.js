@@ -20,6 +20,7 @@ angular.module("GameGalaxy").factory("AuthFactory", (FBCreds, $q) => {
     return $q((resolve, reject) => {
       firebase.auth().onAuthStateChanged( (user) => {
         console.log("auth persisted");
+        console.log(user);
         if (user) {
           user = user.uid;
           resolve(true);
