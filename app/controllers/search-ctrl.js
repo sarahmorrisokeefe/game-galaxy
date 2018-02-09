@@ -2,14 +2,16 @@
 
 angular
   .module('GameGalaxy')
-  .controller('SearchCtrl', function($scope, BlogsFactory, $routeParams) {
+  .controller('SearchCtrl', function($scope, BlogsFactory, $routeParams, FilterFactory) {
 
     $scope.title = "Search";
 
+    $scope.searchterm = FilterFactory;
 
-    BlogsFactory.searchBlogs($routeParams.title)
+    BlogsFactory.getAllBlogs()
       .then(blogsArr => {
         $scope.blogs = blogsArr;
+        console.log(blogsArr);
     });
 
   });

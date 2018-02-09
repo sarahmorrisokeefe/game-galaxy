@@ -2,11 +2,11 @@
 
 angular
   .module('GameGalaxy')
-  .controller('NavCtrl', function($scope, AuthFactory, $window) {
+  .controller('NavCtrl', function($scope, AuthFactory, $window, FilterFactory) {
 
     $scope.brand = "Game Galaxy";
 
-    $scope.title = "";
+    $scope.searchterm = FilterFactory;
 
     $scope.loginUser = () => {
       AuthFactory.login()

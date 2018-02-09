@@ -1,18 +1,19 @@
-<h4 class="center">
-  Welcome to the {{title}} page
+<h4 class="center feature-text huge">
+  {{title}}
 </h4>
+<h6 class="center fancy upscale">Update the search term at the top of the page to update the list below</h6>
 
 <div class="discoverBox">
     <div>
-        <div class="card" ng-repeat="search in blogs">
-          <img class="card-img-top" src="{{search.header}}" alt="Card image cap">
+        <div class="card" ng-repeat="blog in blogs | filter: {title: searchterm.searchterm}">
+          <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{search.title}}</h5>
-            <h6 class="card-title">Published by {{search.author}}</h6>            
-            <a href="#!/blogs/{{search.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
+            <h5 class="card-title">{{blog.title}}</h5>
+            <h6 class="card-title">Published by {{blog.author}}</h6>            
+            <a href="#!/blogs/{{blog.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
           </div>
           <div class="card-footer">
-            <small class="text-muted">Last updated on {{search.date}}</small>
+            <small class="text-muted">Last updated on {{blog.date}}</small>
           </div>
         </div>
       </div>
