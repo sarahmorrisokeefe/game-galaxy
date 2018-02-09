@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory) {
+  .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory, $route) {
     $scope.title = "Discover";
 
     $scope.limit = 3;
@@ -13,5 +13,8 @@ angular
         console.log(blogsArr);
     });
 
+    $(".diceImg").click(() => {
+      $route.reload();
+    });
 
   });
