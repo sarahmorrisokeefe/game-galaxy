@@ -1,0 +1,21 @@
+<h4 class="center">
+  Welcome to the {{title}} page
+</h4>
+
+<h5 class="center fancy upscale">Check out three random articles<br>Find something new!<br>Reload the page to roll again...</h5>
+
+<div class="discoverBox">
+    <div>
+        <div class="card" ng-repeat="blog in blogs | limitTo: limit">
+          <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{blog.title}}</h5>
+            <h6 class="card-title">Published by {{blog.author}}</h6>            
+            <a href="#!/blogs/{{blog.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated on {{blog.date}}</small>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,3 +1,23 @@
-<p>
-  Welcome to the {{title}} page
-</p>
+<h2 class="center feature-text huge">
+  {{title}}
+</h2>
+
+<div class="center">
+  <input class="editorBox" type="text" ng-model="searchname">
+</div>
+
+<div class="editorBox">
+  <div class="card-deck">
+    <div class="card" ng-repeat="user in users | filter: {nickname: searchname}">
+      <img class="card-img-top center" src="...">
+      <div class="card-body">
+        <h5 class="card-title">{{user.nickname}}</h5>
+        <h6 class="card-title">Favorite Genre: {{user.genre[0]}}</h6>      
+        <p class="card-text">{{user.bio}}</p>
+      </div>
+      <div class="card-footer">
+        <a href="#!/community/view/{{user.uid}}"><button type="submit" class="btn btn-info">Full Profile</button></a>
+      </div>
+    </div>
+  </div>
+</div>

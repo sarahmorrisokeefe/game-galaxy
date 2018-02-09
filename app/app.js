@@ -19,48 +19,51 @@ angular
   .config($routeProvider => {
     $routeProvider
       .when("/home", {
+        // TODO:  add more jumbotrons detailing features and instructions
         templateUrl: "partials/home-splash.html",
         controller: "HomeCtrl"
       })
       .when("/discover", {
         templateUrl: "partials/discover.html",
         controller: "DiscoverCtrl",
-        // resolve: { isAuth }
       })
       .when("/community", {
+        // TODO: page still in progress        
         templateUrl: "partials/community.html",
         controller: "CommunityCtrl",
-        // resolve: { isAuth }
       })
-      .when("/me", {
-        templateUrl: "partials/me.html",
-        controller: "MeCtrl",
-        // resolve: { isAuth }
-      })
-      .when("/community/:uid", {
+      .when("/profile", {
+        // TODO: add the ability to customize user image
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
-        // resolve: { isAuth }
+      })
+      .when("/community/view/:uid", {
+        // TODO: page still in progress
+        templateUrl: "partials/view-profile.html",
+        controller: "ViewProfileCtrl",
       })
       .when("/blogs/new", {
+        // TODO: fix toast pop on blog submit
+        // TODO: add API search for game to attach game to post
         templateUrl: "partials/blog-edit.html",
         controller: "BlogNewCtrl",
         resolve: { authenticate }
       })
       .when("/blogs/:id", {
+        // FIXME: every blog page needs it's own comment board...somehow
+        // TODO: add game ID from API to each post to generate info box about game per blog
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
-        // resolve: { isAuth }
       })
       .when("/blogs/:id/edit", {
+        // TODO: page still in progress 
+        // TODO: include ability to delete blog with confirmation modal on this page       
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
-        // resolve: { isAuth }
       })
       .when("/search/:title", {
         templateUrl: "partials/search.html",
         controller: "SearchCtrl",
-        // resolve: { isAuth }
       })
       .otherwise("/home");
   })

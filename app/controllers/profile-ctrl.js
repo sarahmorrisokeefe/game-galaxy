@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('MeCtrl', function($scope, $routeParams, UserFactory) {
+  .controller('ProfileCtrl', function($scope, $routeParams, UserFactory) {
 
     $scope.title = "Profile";
 
