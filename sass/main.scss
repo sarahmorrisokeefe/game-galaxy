@@ -5,9 +5,15 @@ body {
   background-color: #f6f6f6;
 }
 
+input {
+  border-radius: 15px;
+  padding-left: 1vh;
+}
+
 main {
   flex: 1;
   margin-top: 10vh !important;
+  margin-bottom: 6vh !important;
 }
 
 .jumbotron {
@@ -17,6 +23,23 @@ main {
 
 #brand {
   font-family: "Press Start 2P";
+}
+
+.divider {
+  width: 60%;
+  border: 1px solid black !important;
+  margin-bottom: -25px;
+}
+
+.top-spacer {
+  margin-top: 3vh;
+}
+
+.preview {
+  width: 25vw;
+  height: 30vh;
+  margin: 1vh auto;
+  border-radius: 100%;
 }
 
 .editorBox {
@@ -59,7 +82,11 @@ main {
 }
 
 .margin {
-  margin: 0 2vw !important;
+  margin: 2vh 2vw 0 !important;
+}
+
+.removeMargin {
+  margin: 0;
 }
 
 .card-columns {
@@ -107,6 +134,10 @@ main {
 
 .subtitle {
   font-size: .5rem;
+}
+
+.midtitle {
+  font-size: .75rem;
 }
 
 .upscale {

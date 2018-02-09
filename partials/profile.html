@@ -25,7 +25,12 @@
   <form>
     <div class="form-group">
       <label for="customPhoto">Update Your Profile Picture</label>
-      <input type="file" class="form-control-file" id="customPhoto" ng-model="user.customPhoto">
+      <p class="fancy upscale">Please submit URL to desired photo</p>
+      <input type="text" class="form-control" id="customPhoto" ng-model="user.customPhoto">
+      <div class="center margin">
+        <p class="fancy upscale">Profile picture preview:</p>
+        <img class="preview" src="{{user.customPhoto}}" ng-if="user.customPhoto">
+      </div>
     </div>
   </form>
 </form>

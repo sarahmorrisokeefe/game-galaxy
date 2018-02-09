@@ -1,22 +1,25 @@
-<h2 class="center feature-text huge">
+<h2 class="center feature-text huge top-spacer">
   {{title}}
 </h2>
 
-<div class="center">
-  <input class="editorBox" type="text" ng-model="searchname">
+<div class="center top-spacer">
+  <h4 class="fancy upscale"> Use the box below to filter through and find a user by nickname</h4>
+  <input class="editorBox removeMargin" type="text" ng-model="searchname" placeholder="Your friend's name here...">
 </div>
 
+<hr class="divider top-spacer">
+
 <div class="editorBox">
-  <div class="card-deck">
-    <div class="card" ng-repeat="user in users | filter: {nickname: searchname}">
-      <img class="card-img-top center" src="...">
+<div class="card-columns">
+    <div class="card" style="margin-bottom: 0 !important;" ng-repeat="user in users | filter: {nickname: searchname}">
+      <img class="card-img-top" src="{{user.customPhoto}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{user.nickname}}</h5>
-        <h6 class="card-title">Favorite Genre: {{user.genre[0]}}</h6>      
+        <h6 class="card-title">Favorite Genre: {{user.genre[0]}}</h6>              
         <p class="card-text">{{user.bio}}</p>
       </div>
       <div class="card-footer">
-        <a href="#!/community/view/{{user.uid}}"><button type="submit" class="btn btn-info">Full Profile</button></a>
+          <a href="#!/community/view/{{user.uid}}"><button type="submit" class="btn btn-info midtitle">View {{user.nickname}}'s Profile</button></a>
       </div>
     </div>
   </div>
