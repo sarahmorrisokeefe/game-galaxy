@@ -1,12 +1,11 @@
-<h4 class="center">
-  Welcome to the {{title}} page
+<h4 class="center feature-text huge">
+  {{title}}
 </h4>
-
-<h5 class="center fancy upscale">Check out three random articles<br>Find something new!<br>Reload the page to roll again...</h5>
+<h6 class="center fancy upscale">Update the search term at the top of the page to update the list below</h6>
 
 <div class="discoverBox">
     <div>
-        <div class="card" ng-repeat="blog in blogs | limitTo: limit">
+        <div class="card" ng-repeat="blog in blogs | filter: {title: searchterm.searchterm}">
           <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>
