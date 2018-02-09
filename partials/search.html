@@ -5,7 +5,7 @@
 
 <div class="discoverBox">
     <div>
-        <div class="card" ng-repeat="blog in blogs | filter: {title: searchterm.searchterm}">
+        <div class="card"  style="width: 70vw !important" ng-repeat="blog in blogs | filter: {title: searchterm.searchterm}">
           <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>

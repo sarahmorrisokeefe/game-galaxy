@@ -21,7 +21,6 @@ angular
     $scope.logoutUser = () => {
       AuthFactory.logout()
       .then(() => {
-        console.log("see ya later");
         $("#navbarDropdown").dropdown('toggle');
         $window.location.href = "#!/home";
       });

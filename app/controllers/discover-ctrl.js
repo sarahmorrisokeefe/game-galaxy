@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory, $route) {
+  .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory, $route, $window) {
     $scope.title = "Discover";
 
     $scope.limit = 3;
@@ -16,5 +16,23 @@ angular
     $(".diceImg").click(() => {
       $route.reload();
     });
+
+    function move() {
+      var elem = document.getElementById("myBar");   
+      var width = 1;
+      var id = $window.setInterval(frame, 10);
+      function frame() {
+        if (width >= 100) {
+          $window.clearInterval(id);
+          document.getElementById('content').style.display='block';
+          document.getElementById('myProgress').style.display='none';          
+        } else {
+          width++; 
+          elem.style.width = width + '%'; 
+        }
+      }
+    }
+
+    move();
 
   });

@@ -10,12 +10,19 @@ angular
       nickname: "",
       genre: "",
       bio: "",
-      customPhoto: ""
+      customPhoto: "",
+      uid: ""
     };
 
     $scope.clickSubmit = () => {
       UserFactory.addNewUser($scope.user);
       console.log('new user added to database');
     };
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user) {
+        $scope.user.uid = firebase.auth().currentUser.uid;
+      }
+    });
 
   });

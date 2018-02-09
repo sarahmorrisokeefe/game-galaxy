@@ -28,12 +28,10 @@ angular
         controller: "DiscoverCtrl",
       })
       .when("/community", {
-        // TODO: page still in progress        
         templateUrl: "partials/community.html",
         controller: "CommunityCtrl",
       })
       .when("/profile", {
-        // TODO: add the ability to customize user image
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
       })
@@ -41,6 +39,11 @@ angular
         // TODO: page still in progress
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
+      })
+      .when("/community/view/:uid/blogs", {
+        // TODO: page still in progress
+        templateUrl: "partials/my-blogs.html",
+        controller: "MyBlogsCtrl",
       })
       .when("/blogs/new", {
         // TODO: fix toast pop on blog submit

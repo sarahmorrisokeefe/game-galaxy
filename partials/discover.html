@@ -9,10 +9,15 @@
 <img src="../img/dice.png" class="diceImg">
 </div>
 
+<div class="progress editorBox" id="myProgress">
+    <!-- <div class="progress-bar" role="progressbar" id="myBar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div> -->
+    <div id="myBar"></div>
+</div>
 
-<div class="discoverBox">
+
+<div class="discoverBox" id="content">
     <div>
-        <div class="card" ng-repeat="blog in blogs | limitTo: limit">
+        <div class="card" style="width: 70vw !important" ng-repeat="blog in blogs | limitTo: limit">
           <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>
