@@ -5,9 +5,23 @@ body {
   background-color: #f6f6f6;
 }
 
+input {
+  border-radius: 15px;
+  padding-left: 1vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 main {
   flex: 1;
   margin-top: 10vh !important;
+  margin-bottom: 6vh !important;
 }
 
 .jumbotron {
@@ -19,9 +33,64 @@ main {
   font-family: "Press Start 2P";
 }
 
+.divider {
+  width: 60%;
+  border: 1px solid black !important;
+  margin-bottom: -25px;
+}
+
+.top-spacer {
+  margin-top: 3vh;
+}
+
+.right-spacer {
+  margin: 3vh;
+}
+
+.bot-spacer {
+  margin-bottom: 3vh;
+}
+
+.preview {
+  width: 25vw;
+  height: 30vh;
+  margin: 1vh auto;
+  border-radius: 100%;
+}
+
 .editorBox {
   width: 70%;
   margin: 6vh auto;
+}
+
+.articleBox {
+  width: 70%;
+  margin: 1vh auto;
+}
+
+.modal-align {
+  margin: 18% 18%;
+  text-align: center;
+  color: white;
+}
+
+.modal-content {
+  // background-color: rgb(92, 91, 91);
+  color: black;
+  border: 1px solid rgb(119, 118, 118);
+}
+
+.warning {
+  color: red;
+  font-family: "Press Start 2P";
+}
+
+.profileArticle {
+  min-width: 30vh;
+}
+
+.myBlogsArticle {
+  min-width: 40vh;
 }
 
 .center, .lead {
@@ -53,6 +122,23 @@ main {
   text-align: center;
 }
 
+.communityBox {
+  width: 80%;
+  text-align: center;
+}
+
+.margin {
+  margin: 2vh 2vw 0 !important;
+}
+
+.removeMargin {
+  margin: 0;
+}
+
+.removePadding {
+  padding: 0;
+}
+
 .card-columns {
   text-align: center !important;
 }
@@ -67,6 +153,15 @@ main {
 .feature-text {
   font-family: 'Press Start 2P';
   font-size: 1.2em;
+}
+
+.google-sign {
+  max-width: 15vw;
+  max-height: 10vh;
+}
+
+.google-sign:hover {
+  cursor: pointer;
 }
 
 .fancy {
@@ -98,6 +193,74 @@ main {
 
 .subtitle {
   font-size: .5rem;
+}
+
+.diceImg {
+  max-width: 10vw;
+  max-height: 10vh;
+  display: inline-block;
+}
+
+.dice {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.viewProfilePicture {
+  width: 30vh;
+  height: 28vh;
+  border-radius: 100%;
+  margin: 2vh auto;
+  top: 2vh;
+  left: 2vh;
+}
+
+.profileCard {
+  min-height: 36vh;
+}
+
+.dice:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+#content {
+  display: none;
+} 
+
+#myProgress {
+  width: 60%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #4CAF50;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.midtitle {
+  font-size: .75rem;
 }
 
 .upscale {

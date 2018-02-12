@@ -1,0 +1,41 @@
+<h4 class="center feature-text huge top-spacer">
+  {{title}}
+</h4>
+
+<div class="card-deck articleBox">
+    <div class="card right-spacer myBlogsArticle" ng-repeat="blog in blogs">
+      <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text"></p>
+        <a href="#!/blogs/{{blog.id}}"><button type="submit" class="btn btn-outline-info">Read</button></a>
+        <a href=""><button type="submit" class="btn btn-outline-success">Edit</button></a>        
+        <a href=""><button type="submit" class="btn btn-outline-warning" ng-click="deleteThis(blog.id)">Delete</button></a>        
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{blog.date}}</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="modal modal-align" tabindex="-1" role="dialog" id="blog.id">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title warning">WARNING</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>This will permanently<br><br> <span class="feature-text huge warning">DELETE</span> <br><br>this blog post!</p>
+          <p>Forever means forever.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" ng-click="deleteThis(blog.id)">I understand. Delete my post.</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No! Please! Go back!</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+

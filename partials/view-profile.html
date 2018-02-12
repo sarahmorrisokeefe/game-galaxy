@@ -1,0 +1,31 @@
+<h2 class="center feature-text top-spacer">
+  {{thisUser.nickname}}'s Profile
+</h2>
+
+<div class="card mb-3 relative profileCard">
+  <img class="viewProfilePicture absolute" src="{{thisUser.customPhoto}}" alt="user profile picture">
+  <div class="card-body top-spacer">
+    <h5 class="card-title">{{thisUser.formal}}</h5>
+    <h5>Favorite Genre: {{thisUser.genre[0]}}</h5>
+    <p class="card-text">{{thisUser.bio}}</p>
+    <p class="card-text"><small class="text-muted">Date Joined: {{thisUser.joinDate}}</small></p>
+  </div>
+</div>
+
+<hr class="divider bot-spacer">
+
+<h2 class="center feature-text top-spacer">{{thisUser.nickname}}'s Articles</h2>
+
+  <div class="card-deck articleBox">
+    <div class="card mr-3 profileArticle" ng-repeat="userBlog in blogs">
+      <img class="card-img-top" src="{{userBlog.header}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{userBlog.title}}</h5>
+        <p class="card-text"></p>
+        <a href="#!/blogs/{{userBlog.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{userBlog.date}}</small>
+      </div>
+    </div>
+  </div>

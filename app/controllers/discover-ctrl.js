@@ -2,26 +2,37 @@
 
 angular
   .module('GameGalaxy')
-  .controller('DiscoverCtrl', function($scope, BlogsFactory) {
+  .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory, $route, $window) {
     $scope.title = "Discover";
 
     $scope.limit = 3;
-
-    // Shuffle array function courtesy of Hunter. What a badass
-
-    const shuffleArr = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    };
     
     BlogsFactory.getAllBlogs()
       .then(blogsArr => {
-        $scope.blogs = shuffleArr(blogsArr);
+        $scope.blogs = FilterFactory.shuffleArr(blogsArr);
         console.log(blogsArr);
     });
 
+    $(".diceImg").click(() => {
+      $route.reload();
+    });
+
+    function move() {
+      var elem = document.getElementById("myBar");   
+      var width = 1;
+      var id = $window.setInterval(frame, 8);
+      function frame() {
+        if (width >= 100) {
+          $window.clearInterval(id);
+          document.getElementById('content').style.display='block';
+          document.getElementById('myProgress').style.display='none';          
+        } else {
+          width++; 
+          elem.style.width = width + '%'; 
+        }
+      }
+    }
+
+    move();
 
   });

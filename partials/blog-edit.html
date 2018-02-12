@@ -52,12 +52,16 @@
   <div id="toastAlert">Your post is published! Search for it now 😊</div>
   
   <br>
+
+  <hr>
   
   <div class="center">
       <h4>Preview:</h4>
   </div>
     
-  <p class="editorBox">{{blog.body}}</p>
+  <p class="editorBox" ng-bind-html="blog.body"></p>
+
+  <hr>
 
   <div class="editorBox">
   <dir-disqus config="disqusConfig2"></dir-disqus>
