@@ -10,6 +10,14 @@ input {
   padding-left: 1vh;
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 main {
   flex: 1;
   margin-top: 10vh !important;
@@ -35,6 +43,10 @@ main {
   margin-top: 3vh;
 }
 
+.bot-spacer {
+  margin-bottom: 3vh;
+}
+
 .preview {
   width: 25vw;
   height: 30vh;
@@ -45,6 +57,15 @@ main {
 .editorBox {
   width: 70%;
   margin: 6vh auto;
+}
+
+.articleBox {
+  width: 70%;
+  margin: 1vh auto;
+}
+
+.profileArticle {
+  min-width: 30vh;
 }
 
 .center, .lead {
@@ -89,6 +110,10 @@ main {
   margin: 0;
 }
 
+.removePadding {
+  padding: 0;
+}
+
 .card-columns {
   text-align: center !important;
 }
@@ -103,6 +128,15 @@ main {
 .feature-text {
   font-family: 'Press Start 2P';
   font-size: 1.2em;
+}
+
+.google-sign {
+  max-width: 15vw;
+  max-height: 10vh;
+}
+
+.google-sign:hover {
+  cursor: pointer;
 }
 
 .fancy {
@@ -142,7 +176,25 @@ main {
   display: inline-block;
 }
 
-.diceBox:hover {
+.dice {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.viewProfilePicture {
+  width: 30vh;
+  height: 28vh;
+  border-radius: 100%;
+  margin: 2vh auto;
+  top: 2vh;
+  left: 2vh;
+}
+
+.profileCard {
+  min-height: 36vh;
+}
+
+.dice:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;

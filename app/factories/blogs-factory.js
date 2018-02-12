@@ -64,9 +64,26 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
       });
     });
   }
+
+  function getUsersBlogs(uid) {
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/blogs.json?orderBy="uid"&equalTo="${uid}"`)
+      .then(({ data }) => {
+        console.log("user blogs returned", data);
+        let blogsArr = Object.keys(data).map(blogKey => {
+          data[blogKey].id = blogKey;
+          return (data[blogKey]);
+        });
+        resolve(Object.values(data));
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
   
   
 
-  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs };
+  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs };
 
 });

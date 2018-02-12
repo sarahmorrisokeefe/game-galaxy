@@ -8,10 +8,12 @@ angular
 
     $scope.user = {
       nickname: "",
+      formal: "",
       genre: "",
       bio: "",
       customPhoto: "",
-      uid: ""
+      uid: "",
+      joinDate: ""
     };
 
     $scope.clickSubmit = () => {
@@ -22,6 +24,9 @@ angular
     firebase.auth().onAuthStateChanged(function(user) {
       if(user) {
         $scope.user.uid = firebase.auth().currentUser.uid;
+        $scope.user.formal = firebase.auth().currentUser.displayName;        
+        console.log(firebase.auth().currentUser);
+        $scope.user.joinDate = firebase.auth().currentUser.metadata.creationTime.slice(0, 17);        
       }
     });
 

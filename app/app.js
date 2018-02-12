@@ -35,7 +35,7 @@ angular
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
       })
-      .when("/community/view/:uid", {
+      .when("/community/view/:key", {
         // TODO: page still in progress
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
