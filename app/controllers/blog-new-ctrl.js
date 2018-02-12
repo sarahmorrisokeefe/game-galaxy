@@ -2,9 +2,11 @@
 
 angular
   .module('GameGalaxy')
-  .controller('BlogNewCtrl', function($scope, BlogsFactory, $window, $route) {
+  .controller('BlogNewCtrl', function($scope, BlogsFactory, $window, $route, GamesFactory) {
 
     $scope.title = "New Blog Post";
+
+    $scope.searchQuery = "";
 
     $scope.blog = {
       title: "",
@@ -13,7 +15,16 @@ angular
       date: "",
       uid: "",
       author: "",
-      userphoto: ""
+      userphoto: "",
+      mobyID: ""
+    };
+
+    $scope.getMobyResults = (searchQuery) => {
+      GamesFactory.searchMobyGames(searchQuery)
+      .then(data => {
+        console.log(data);
+        $scope.games = data.games;
+      });
     };
 
     $scope.popTheToast = () => {

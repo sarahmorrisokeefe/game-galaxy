@@ -10,6 +10,27 @@ input {
   padding-left: 1vh;
 }
 
+.mobyGames {
+  overflow: scroll;
+  max-height: 40vh;
+}
+
+.mobyGameCard {
+  min-width: 20vw;
+  max-width: 245px;
+}
+
+#mobyDeck {
+  .card {
+    max-width: 245px !important;
+  }
+}
+
+.size-holder {
+  max-width: 245px;
+  max-height: 336px;
+}
+
 .relative {
   position: relative;
 }

@@ -31,7 +31,7 @@ angular
         console.log("blog post deleted");
         $route.reload();
       });
-    }
+    };
 
 
 
