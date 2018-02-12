@@ -27,6 +27,11 @@ angular
       });
     };
 
+    $scope.selectMobyGame = (id) => {
+      $scope.blog.mobyID = id;
+      $("#mobyResults").hide();
+    };
+
     $scope.popTheToast = () => {
       var toast = document.getElementById("toastAlert");
       toast.className = "show";

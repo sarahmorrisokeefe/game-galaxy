@@ -164,6 +164,11 @@ main {
   text-align: center !important;
 }
 
+.bigButton {
+  font-size: 2rem;
+  padding: 0.8em 1.4em;
+}
+
 .card {
   text-align: center !important;
   margin: 5vh auto !important;
@@ -174,6 +179,19 @@ main {
 .feature-text {
   font-family: 'Press Start 2P';
   font-size: 1.2em;
+}
+
+.mobyTitle {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.eightbit {
+  font-family: 'Press Start 2P';  
 }
 
 .google-sign {
