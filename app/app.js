@@ -4,10 +4,10 @@ let authenticate = (AuthFactory) =>
   new Promise((resolve, reject) => {
     AuthFactory.usercheck().then(user => {
       if (user) {
-        console.log("User check - true");
+        console.log("user check - pass");
         resolve();
       } else {
-        console.log("User check - false");
+        console.log("user check - fail");
         reject();
       }
   });
@@ -34,13 +34,13 @@ angular
       .when("/profile", {
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
+        resolve: { authenticate }        
       })
       .when("/community/view/:key", {
-        // TODO: page still in progress
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
       })
-      .when("/community/view/:uid/blogs", {
+      .when("/myblogs/:uid", {
         // TODO: page still in progress
         templateUrl: "partials/my-blogs.html",
         controller: "MyBlogsCtrl",
@@ -54,7 +54,7 @@ angular
       })
       .when("/blogs/:id", {
         // FIXME: every blog page needs it's own comment board...somehow
-        // TODO: add game ID from API to each post to generate info box about game per blog
+        // TODO: add game ID from API to each post to generate info box about game per blog in sidebar
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
       })
@@ -63,6 +63,7 @@ angular
         // TODO: include ability to delete blog with confirmation modal on this page       
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
+        resolve: { authenticate }        
       })
       .when("/search/:title", {
         templateUrl: "partials/search.html",

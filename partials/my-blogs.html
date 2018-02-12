@@ -1,21 +1,39 @@
-<h4 class="center">
-  Welcome to the {{title}} page
+<h4 class="center feature-text huge top-spacer">
+  {{title}}
 </h4>
 
-<h5 class="center fancy upscale">Check out three random articles<br>Find something new!<br>Reload the page to roll again...</h5>
+<div class="card-deck articleBox">
+    <div class="card mr-3 myBlogsArticle" ng-repeat="blog in blogs">
+      <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <p class="card-text"></p>
+        <a href="#!/blogs/{{blog.id}}"><button type="submit" class="btn btn-outline-info">Read</button></a>
+        <a href=""><button type="submit" class="btn btn-outline-success">Edit</button></a>        
+        <a href=""><button type="submit" class="btn btn-outline-warning" data-toggle="modal" data-target="#myModal">Delete</button></a>        
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated {{blog.date}}</small>
+      </div>
+    </div>
+  </div>
 
-<div class="discoverBox">
-    <div>
-        <div class="card" ng-repeat="blog in blogs | limitTo: limit">
-          <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{blog.title}}</h5>
-            <h6 class="card-title">Published by {{blog.author}}</h6>            
-            <a href="#!/blogs/{{blog.id}}"><button type="submit" class="btn btn-info">Read More</button></a>
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated on {{blog.date}}</small>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-</div>
+    </div>

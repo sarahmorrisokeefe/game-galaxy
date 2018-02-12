@@ -17,17 +17,15 @@ angular
       $scope.thisUser = profile;
       BlogsFactory.getUsersBlogs($scope.thisUser.uid)
       .then(blogs => {
-        // console.log($scope.thisUser.uid);
         $scope.blogs = blogs;
       });
     });
 
-    firebase.auth().onAuthStateChanged(function(user) {
-      if(user) {
-        // $scope.user.uid = firebase.auth().currentUser.uid;
-        console.log(firebase.auth().currentUser);
-      }
-    });
-
+    // firebase.auth().onAuthStateChanged(function(user) {
+    //   if(user) {
+    //     // $scope.user.uid = firebase.auth().currentUser.uid;
+    //     console.log(firebase.auth().currentUser);
+    //   }
+    // });
 
   });

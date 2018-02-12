@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('NavCtrl', function($scope, AuthFactory, $window, FilterFactory) {
+  .controller('NavCtrl', function($scope, AuthFactory, $window, FilterFactory, UserFactory) {
 
     $scope.brand = "Game Galaxy";
 
@@ -11,10 +11,10 @@ angular
     $scope.loginUser = () => {
       AuthFactory.login()
       .then((user) => {
-          console.log("Yay, logged in", user);
+          console.log("login success");
       })
       .catch(err => {
-          console.log("You're supposed to login you goober.");
+          console.log("login fail");
       });
     };
 
@@ -29,6 +29,8 @@ angular
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
           $scope.$apply($scope.user = true);
+          console.log(user);
+          $scope.user = user;
       } else {
           $scope.$apply($scope.user = false);
       }
