@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('MyBlogsCtrl', function($scope, BlogsFactory) {
+  .controller('MyBlogsCtrl', function($scope, BlogsFactory, $route) {
 
     $scope.title = "Your Blogs";
 
@@ -19,13 +19,19 @@ angular
       }
     });
 
-    // console.log($scope.thisUser);
+    // let openModal = () => {
+    //   $('#myModal').on('shown.bs.modal', function () {
+    //     $('#myInput').trigger('focus');
+    //   });
+    // };
 
-    let openModal = () => {
-      $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus');
+    $scope.deleteThis = id => {
+      BlogsFactory.deleteBlog(id)
+      .then( () => {
+        console.log("blog post deleted");
+        $route.reload();
       });
-    };
+    }
 
 
 

@@ -43,6 +43,10 @@ main {
   margin-top: 3vh;
 }
 
+.right-spacer {
+  margin: 3vh;
+}
+
 .bot-spacer {
   margin-bottom: 3vh;
 }
@@ -62,6 +66,23 @@ main {
 .articleBox {
   width: 70%;
   margin: 1vh auto;
+}
+
+.modal-align {
+  margin: 18% 18%;
+  text-align: center;
+  color: white;
+}
+
+.modal-content {
+  // background-color: rgb(92, 91, 91);
+  color: black;
+  border: 1px solid rgb(119, 118, 118);
+}
+
+.warning {
+  color: red;
+  font-family: "Press Start 2P";
 }
 
 .profileArticle {

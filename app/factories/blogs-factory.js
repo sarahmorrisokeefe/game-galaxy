@@ -81,9 +81,22 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
       });
     });
   }
+
+  function deleteBlog(id) {
+    return $q((resolve, reject) => {
+      $http
+        .delete(`${FBUrl}/blogs/${id}.json`)
+        .then(() => {
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
   
   
 
-  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs };
+  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs, deleteBlog };
 
 });
