@@ -5,15 +5,40 @@
     <div class="header-photo-box">
       <img src="{{thisBlog.userphoto}}" class="header-user-photo">
     </div>
-    <h2 class="center header-overlay subtitle"><a class="white author-link" href="#!/community/{{thisBlog.uid}}">by {{thisBlog.author}}</a></h2>    
+      <h2 class="center header-overlay subtitle"><a class="white author-link" href="#!/community/{{thisBlog.uid}}">by {{thisBlog.author}}</a></h2>   
     <p class="card-text header-overlay subtitle">Last updated {{thisBlog.date}}</p>
   </div>
 </div>
 
 <div class="jumbotron center">
-  <p class="lead" ng-bind-html="thisBlog.body"></p>
+  <div class="main-blog-content">
+    <p class="lead flexChild-1" ng-bind-html="thisBlog.body"></p>
+    <div class="game-sidebar flexChild-2">
+      <img class="sidebar-cover-img" src="{{moby.cover}}">
+      <hr>
+      <h5 class="eightbit subtitle">Game:</h5>
+      <h6>{{moby.game}}</h6>
+      <h6>Released {{moby.release}}</h6>
+      <hr>
+      <h5 class="eightbit subtitle">Genres:</h5>
+      <ul>
+        <li>{{moby.genres[0].genre_name}}</li>
+        <li>{{moby.genres[1].genre_name}}</li>
+        <li>{{moby.genres[2].genre_name}}</li>        
+      </ul>
+      <hr>
+      <h5 class="eightbit subtitle">Platforms:</h5>
+      <ul>
+        <li>{{moby.platforms[0].platform_name}}</li>
+        <li>{{moby.platforms[1].platform_name}}</li>
+        <li>{{moby.platforms[2].platform_name}}</li>        
+        </ul>
+      <hr>
+      <p ng-bind-html="moby.description"></p>
+    </div>
+  </div>
   <hr class="my-4">
-  <p class="fancy upscale">Join the conversation. Comment below and let your voice be heard in the galaxy</p>
+  <p class="fancy upscale">Join the bloody conversation. Comment below and let your voice be heard in the galaxy</p>
   <p class="lead">
     <div class="editorBox">
       <dir-disqus config="disqusConfig"></dir-disqus>

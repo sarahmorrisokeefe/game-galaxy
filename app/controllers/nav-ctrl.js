@@ -29,7 +29,7 @@ angular
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
           $scope.$apply($scope.user = true);
-          console.log(user);
+          console.log('user info because you suck', user);
           $scope.user = user;
       } else {
           $scope.$apply($scope.user = false);

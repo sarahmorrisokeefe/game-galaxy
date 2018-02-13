@@ -9,7 +9,11 @@
 
 <hr class="divider top-spacer">
 
-<div class="editorBox">
+<div class="progress editorBox" id="myProgress2">
+    <div id="myBar2"></div>
+</div>
+
+<div class="editorBox" id="content">
 <div class="card-columns">
     <div class="card" style="margin-bottom: 0 !important;" ng-repeat="user in users | filter: {nickname: searchname}">
       <img class="card-img-top" src="{{user.customPhoto}}" alt="Card image cap">

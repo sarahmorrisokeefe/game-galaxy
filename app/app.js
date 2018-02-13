@@ -32,35 +32,32 @@ angular
         controller: "CommunityCtrl",
       })
       .when("/profile", {
+        // TODO: set conditional IF that PUTS instead of POSTS user info using uid        
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
         resolve: { authenticate }        
       })
       .when("/community/view/:key", {
+        // TODO: add full profile info for placeholder users on firebase
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
       })
       .when("/myblogs/:uid", {
-        // TODO: page still in progress
         templateUrl: "partials/my-blogs.html",
         controller: "MyBlogsCtrl",
       })
       .when("/blogs/new", {
         // TODO: fix toast pop on blog submit
-        // TODO: add API search for game to attach game to post
         templateUrl: "partials/blog-edit.html",
         controller: "BlogNewCtrl",
         resolve: { authenticate }
       })
       .when("/blogs/:id", {
-        // FIXME: every blog page needs it's own comment board...somehow
-        // TODO: add game ID from API to each post to generate info box about game per blog in sidebar
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
       })
       .when("/blogs/:id/edit", {
         // TODO: page still in progress 
-        // TODO: include ability to delete blog with confirmation modal on this page       
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
         resolve: { authenticate }        
