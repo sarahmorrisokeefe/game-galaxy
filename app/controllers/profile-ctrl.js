@@ -17,7 +17,7 @@ angular
         $scope.user.nickname = data[0].nickname;
         $scope.user.bio = data[0].bio;
         $scope.user.customPhoto = data[0].customPhoto;
-        $scope.user.genre = data[0].genre[0];
+        $scope.user.genre = data[0].genre;
       }
     });
 
