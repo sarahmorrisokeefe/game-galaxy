@@ -48,8 +48,10 @@ angular
     $scope.popTheToast = () => {
       var toast = document.getElementById("toastAlert");
       toast.className = "show";
-      $window.setTimeout(function() {toast.className = "hide";}, 3000);
-      toast.className = "hide";
+      $window.setTimeout(
+        function() {
+          toast.className = "hide";
+        }, 3000);
     };
 
     firebase.auth().onAuthStateChanged(function(user) {
