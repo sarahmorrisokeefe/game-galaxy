@@ -32,7 +32,6 @@ angular
         controller: "CommunityCtrl",
       })
       .when("/profile", {
-        // TODO: set conditional IF that PUTS instead of POSTS user info using uid        
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
         resolve: { authenticate }        
@@ -47,7 +46,6 @@ angular
         controller: "MyBlogsCtrl",
       })
       .when("/blogs/new", {
-        // TODO: fix toast pop on blog submit
         templateUrl: "partials/blog-edit.html",
         controller: "BlogNewCtrl",
         resolve: { authenticate }

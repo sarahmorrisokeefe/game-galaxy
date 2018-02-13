@@ -21,11 +21,4 @@ angular
       });
     });
 
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if(user) {
-    //     // $scope.user.uid = firebase.auth().currentUser.uid;
-    //     console.log(firebase.auth().currentUser);
-    //   }
-    // });
-
   });

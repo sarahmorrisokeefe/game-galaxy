@@ -7,10 +7,10 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
       $http
         .post(`${FBUrl}/users.json`, JSON.stringify(userObject))
         .then(data => {
-          let userArr = Object.keys(data).map(userKey => {
-            data[userKey].id = userKey;
-            return (data[userKey]);
-          });
+          // let userArr = Object.keys(data).map(userKey => {
+          //   data[userKey].id = userKey;
+          //   return (data[userKey]);
+          // });
           console.log("New User saved", data);
           resolve(data);
         })
