@@ -6,10 +6,12 @@ angular
 
     $scope.title = "Profile";
 
+    $scope.key = "";
+
     UserFactory.checkForUser(firebase.auth().currentUser.uid)
     .then((data) => {
       console.log('data', data);
-      if (data === {}) {
+      if (data.length === 0) {
         $("#putBtn").hide();
       } else {
         $scope.key = data[0].key;
@@ -35,8 +37,6 @@ angular
       UserFactory.addNewUser($scope.user);
       console.log('new user added to database');
     };
-
-    $scope.key = "";
 
     $scope.updateSubmit = () => {
       console.log($scope.key);
