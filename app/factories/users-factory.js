@@ -21,6 +21,21 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
     });
   }
 
+  function updateUser(key, userObject) {
+    return $q((resolve, reject) => {
+      $http
+        .put(`${FBUrl}/users/${key}.json`, JSON.stringify(userObject))
+        .then(data => {
+          console.log("Existing User updated", data);
+          resolve(data);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
+
   function getAllUsers() {
     return $q((resolve,reject) => {
       $http.get(`${FBUrl}/users.json`)
@@ -49,6 +64,22 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
     });
   }
 
-  return { addNewUser, getAllUsers, getSingleUser };
+  function checkForUser(uid) {
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/users.json?orderBy="uid"&equalTo="${uid}"`)
+      .then(({ data }) => {
+        let userArr = Object.keys(data).map(userKey => {
+          data[userKey].key = userKey;
+          return (data[userKey]);
+        }); 
+        resolve(Object.values(data));
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  return { addNewUser, getAllUsers, getSingleUser, checkForUser, updateUser };
 
 });

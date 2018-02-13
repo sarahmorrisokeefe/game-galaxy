@@ -38,7 +38,7 @@ angular
         resolve: { authenticate }        
       })
       .when("/community/view/:key", {
-        // TODO: add full profile info for placeholder users on firebase
+        // TODO: fix profile header display bc it is ugly
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
       })

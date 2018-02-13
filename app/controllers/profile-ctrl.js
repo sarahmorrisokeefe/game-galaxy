@@ -2,9 +2,21 @@
 
 angular
   .module('GameGalaxy')
-  .controller('ProfileCtrl', function($scope, $routeParams, UserFactory) {
+  .controller('ProfileCtrl', function($scope, $routeParams, UserFactory, $window) {
 
     $scope.title = "Profile";
+
+    UserFactory.checkForUser(firebase.auth().currentUser.uid)
+    .then((data) => {
+      console.log('data', data);
+      if (data === {}) {
+        $("#putBtn").hide();
+      } else {
+        $scope.key = data[0].key;
+        console.log($scope.key);
+        $("#postBtn").hide();
+      }
+    });
 
     $scope.user = {
       nickname: "",
@@ -19,6 +31,22 @@ angular
     $scope.clickSubmit = () => {
       UserFactory.addNewUser($scope.user);
       console.log('new user added to database');
+    };
+
+    $scope.key = "";
+
+    $scope.updateSubmit = () => {
+      console.log($scope.key);
+      UserFactory.updateUser($scope.key, $scope.user);
+      console.log('user info update activated');
+      $scope.popTheToast();
+    };
+
+    $scope.popTheToast = () => {
+      var toast = document.getElementById("toastAlert");
+      toast.className = "show";
+      $window.setTimeout(function() {toast.className = "hide";}, 3000);
+      toast.className = "hide";
     };
 
     firebase.auth().onAuthStateChanged(function(user) {

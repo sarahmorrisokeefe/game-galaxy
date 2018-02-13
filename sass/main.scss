@@ -295,6 +295,7 @@ ul {
 .flexChild-1 {
   width: 60%;
   margin: 0 auto;
+  text-align: left;  
 }
 
 .flexChild-2 {
@@ -306,6 +307,10 @@ ul {
   border-radius: 10px;
   border: 1px solid black;
   transition: box-shadow 0.3s;
+}
+
+.hide {
+  display: none;
 }
 
 .flexChild-2:hover {
