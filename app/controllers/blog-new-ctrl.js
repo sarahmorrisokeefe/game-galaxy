@@ -16,7 +16,9 @@ angular
       uid: "",
       author: "",
       userphoto: "",
-      mobyID: ""
+      mobyID: "",
+      game: "",
+      cover: ""
     };
 
     $scope.getMobyResults = (searchQuery) => {
@@ -27,9 +29,20 @@ angular
       });
     };
 
-    $scope.selectMobyGame = (id) => {
+    $scope.selectMobyGame = (id, game, cover) => {
       $scope.blog.mobyID = id;
+      $scope.blog.game = game;
+      $scope.blog.cover = cover;      
       $("#mobyResults").hide();
+      $("#selectedGame").show();
+    };
+
+    $scope.undoGameSelect = () => {
+      $scope.blog.mobyID = "";
+      $scope.blog.game = "";
+      $scope.blog.cover = "";
+      $("#mobyResults").show();
+      $("#selectedGame").hide();
     };
 
     $scope.popTheToast = () => {

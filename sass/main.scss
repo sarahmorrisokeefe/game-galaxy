@@ -3,6 +3,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: #f6f6f6;
+  max-width: 1100px;
+  margin: auto;
+  min-width: 760px;
 }
 
 input {
@@ -96,7 +99,6 @@ main {
 }
 
 .modal-content {
-  // background-color: rgb(92, 91, 91);
   color: black;
   border: 1px solid rgb(119, 118, 118);
 }
@@ -120,6 +122,7 @@ main {
 
 .navbar-brand {
   margin-left: 1.2rem !important;
+  padding-top: .6125rem !important;
 }
 
 .white {
@@ -128,6 +131,35 @@ main {
 
 #footer {
   padding: 2vh;
+  width: 100% !important;
+  background-color: #f6f6f6 !important;  
+}
+
+.icon-size {
+  max-width: 25px;
+  max-height: 25px;
+  padding-right: 4px;
+  padding-bottom: 4px;  
+}
+
+.stupid-icon-size {
+  max-width: 23px;
+  max-height: 23px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.search-icon-size {
+  max-width: 36px;
+  max-height: 36px;
+  padding-right: 8px;
+}
+
+.main-icon-size {
+  max-width: 40px;
+  max-height: 40px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 #foot-brand {
@@ -167,6 +199,17 @@ main {
 .bigButton {
   font-size: 2rem;
   padding: 0.8em 1.4em;
+}
+
+.selectedGameCard {
+  text-align: center;
+  max-width: 25vw;
+}
+
+#selectedGame {
+  .selectedGameCard {
+    max-width: 245px !important;
+  }
 }
 
 .card {
@@ -245,8 +288,41 @@ ul {
   margin: 0 auto;
 }
 
+.main-blog-content {
+  display: flex;
+}
+
+.flexChild-1 {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.flexChild-2 {
+  width: 28%;
+  margin: 0 auto;
+  padding: 8px;
+  max-height: 500px;
+  overflow: scroll;
+  border-radius: 10px;
+  border: 1px solid black;
+  transition: box-shadow 0.3s;
+}
+
+.flexChild-2:hover {
+  box-shadow: 0 0 5px 2px black;  
+}
+
+.game-sidebar {
+  background: rgba(128, 128, 128, 0.6);
+}
+
+.sidebar-cover-img {
+  max-width: 80%;
+  max-height: 50%;
+}
+
 .viewProfilePicture {
-  width: 30vh;
+  width: 27vh;
   height: 28vh;
   border-radius: 100%;
   margin: 2vh auto;
@@ -278,6 +354,17 @@ ul {
   width: 1%;
   height: 30px;
   background-color: #4CAF50;
+}
+
+#myProgress2 {
+  width: 60%;
+  background-color: #ddd;
+}
+
+#myBar2 {
+  width: 1%;
+  height: 30px;
+  background-color: rgb(48, 67, 155);
 }
 
 @keyframes shake {

@@ -13,7 +13,19 @@ angular.module("GameGalaxy").factory("GamesFactory", (APICreds, $http, $q) => {
       });
     });
   }
+
+  function getBlogMobyGame(mobyGameID) {
+    return $q((resolve,reject) => {
+      $http.get(`https://api.mobygames.com/v1/games?id=${mobyGameID}&api_key=${APICreds.apiKey}`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
   
-  return { searchMobyGames };
+  return { searchMobyGames, getBlogMobyGame };
 
 });
