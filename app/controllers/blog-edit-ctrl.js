@@ -2,11 +2,18 @@
 
 angular
   .module('GameGalaxy')
-  .controller('BlogEditCtrl', function($scope, $routeParams, BlogsFactory) {
+  .controller('BlogEditCtrl', function($scope, $routeParams, BlogsFactory, $route, $window) {
 
     $scope.title = "Edit Your Post";
 
-    console.log($routeParams.id);
+    $scope.popTheToast = () => {
+      var toast = document.getElementById("toastAlert");
+      toast.className = "show";
+      $window.setTimeout(
+        function() {
+          toast.className = "hide";
+        }, 5000);
+    };
 
     BlogsFactory.getThisBlog($routeParams.id)
     .then(data => {
@@ -19,6 +26,8 @@ angular
       BlogsFactory.updateBlog($routeParams.id, $scope.blog)
       .then((data) => {
         console.log("Blog updated", data);
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+        $scope.popTheToast();
       });
     };
     
