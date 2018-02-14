@@ -3,7 +3,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: #f6f6f6;
-  max-width: 1100px;
+  // max-width: 1100px;
   margin: auto;
   min-width: 760px;
 }
@@ -91,7 +91,7 @@ main {
 }
 
 .preview {
-  width: 25vw;
+  width: 19vw;
   height: 30vh;
   margin: 1vh auto;
   border-radius: 100%;
@@ -220,7 +220,11 @@ main {
   text-align: center !important;
   margin: 5vh auto !important;
   transition: box-shadow 0.5s;
-  max-width: 85vw !important;
+  max-width: 70vw !important;
+}
+
+.blog-li {
+  max-width: 120%;
 }
 
 .feature-text {
@@ -464,7 +468,7 @@ ul {
 #toastAlert {
   visibility: hidden;
   min-width: 250px;
-  max-height: 5vh;
+  max-height: 10vh;
   margin-left: -125px;
   font-size: 0.8em;
   background-color: rgb(91, 150, 121);

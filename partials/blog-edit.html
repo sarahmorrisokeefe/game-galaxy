@@ -81,18 +81,23 @@
   </ng-quill-editor>
   </div>
   
-  <div class="center">
+  <div class="center" ng-if="!editCheck">
     <button class="btn btn-success bigButton" ng-click="submitBlog()">Submit</button>
   </div>
 
-  <div id="toastAlert">Your post is published! Search for it now 😊</div>
+  <div class="center" ng-if="editCheck">
+      <button class="btn btn-warning bigButton" ng-click="updatePost()">Update</button>
+    </div>
+
+  <div id="toastAlert" class="upscale">Changes saved! 😊 <br>
+     Head to <a href="#!/myblogs/{{user.uid}}">your blogs</a> to view it now</div>
   
   <br>
 
   <hr>
   
   <div class="center">
-      <h4>Preview:</h4>
+      <h4>Post Preview:</h4>
   </div>
     
   <p class="editorBox" ng-bind-html="blog.body"></p>
