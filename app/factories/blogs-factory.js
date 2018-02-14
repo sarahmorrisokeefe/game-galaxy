@@ -94,9 +94,24 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
         });
     });
   }
+
+  function updateBlog(key, blogObject) {
+    return $q((resolve, reject) => {
+      $http
+        .put(`${FBUrl}/blogs/${key}.json`, JSON.stringify(blogObject))
+        .then(data => {
+          console.log("Existing Post updated", data);
+          resolve(data);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
   
   
 
-  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs, deleteBlog };
+  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs, deleteBlog, updateBlog };
 
 });
