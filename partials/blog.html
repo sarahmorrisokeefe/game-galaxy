@@ -14,7 +14,7 @@
   <div class="main-blog-content">
     <p class="lead flexChild-1" ng-bind-html="thisBlog.body"></p>
     <div class="game-sidebar flexChild-2">
-      <img class="sidebar-cover-img" src="{{moby.cover}}">
+      <img class="sidebar-cover-img" ng-src="{{moby.cover || ../img/error.jpg}}">
       <hr>
       <h5 class="eightbit subtitle">Game:</h5>
       <h6>{{moby.game}}</h6>

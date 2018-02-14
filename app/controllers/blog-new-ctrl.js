@@ -90,5 +90,5 @@ angular
 
     $scope.today = $scope.mm + '/' + $scope.dd + '/' + $scope.yyyy;
     $scope.blog.date = $scope.today;
-
+  
   });

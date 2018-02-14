@@ -309,6 +309,12 @@ ul {
   transition: box-shadow 0.3s;
 }
 
+.view-user-bio {
+  max-width: 50%;
+  margin-left: 25%;
+  margin-right: 19%;
+}
+
 .hide {
   display: none;
 }
@@ -370,24 +376,6 @@ ul {
   width: 1%;
   height: 30px;
   background-color: rgb(48, 67, 155);
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
 }
 
 .midtitle {
@@ -458,6 +446,43 @@ ul {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+// tags
+
+.tag-personnel {
+  background-color: #DAF991;
+  border: 1px solid #C2F456;
+}
+.tag {
+  margin: 2px;
+  padding: 6px 5px;
+}
+.tag {
+  border-radius: 5px;
+  color: #000000;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 1px;
+  padding: 2px 5px;
+}
+.tag a span.tag-icon {
+  background-position: -312px 0 !important;
+  margin: 0 !important;
+  width: 14px !important;
+}
+.tag .tag-icon {
+  background-image: url("glyphicons-halflings.png");
+  background-position: 0 -48px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 14px;
+  line-height: 14px;
+  margin-top: 1px;
+  vertical-align: text-top;
+  width: 14px;
+}
+
+// animations
+
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
@@ -466,4 +491,22 @@ ul {
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

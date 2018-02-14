@@ -13,6 +13,7 @@
         <label for="headerImg">Header Image URL <span class="fancy">An original screenshot or other creative photo is recommended and can increase view count</span></label>
         <input type="text" class="form-control" id="headerImg" ng-model="blog.header" placeholder="Paste image address here...">
       </div>
+
       <div class="form-group">
           <label for="mobySearch">Select the game this post is about - <a href="http://www.mobygames.com/" class="fancy upscale">Powered by MobyGames</a></label>
           <input type="text" class="form-control" id="mobySearch" ng-model="searchQuery" placeholder="Type the game's title here...">
@@ -25,7 +26,7 @@
             <div class="card-deck" id="mobyDeck">
               <div class="card mobyGameCard center" ng-repeat="game in games">
                 <div class="lead">
-                  <img class="card-img-top size-holder" src="{{game.sample_cover.image}}" alt="Card image cap">
+                  <img class="card-img-top size-holder" ng-src="{{game.sample_cover.image || '../img/error.jpg'}}" alt="Game cover">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title mobyTitle">{{game.title}}</h5>
