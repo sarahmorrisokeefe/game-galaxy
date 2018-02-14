@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('ProfileCtrl', function($scope, $routeParams, UserFactory, $window) {
+  .controller('ProfileCtrl', function($scope, $routeParams, UserFactory, $window, $route) {
 
     $scope.title = "Profile";
 
@@ -36,6 +36,7 @@ angular
     $scope.clickSubmit = () => {
       UserFactory.addNewUser($scope.user);
       console.log('new user added to database');
+      $route.reload();
     };
 
     $scope.updateSubmit = () => {

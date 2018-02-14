@@ -12,6 +12,7 @@ angular
       AuthFactory.login()
       .then((user) => {
           console.log("login success");
+          $window.location.href = "#!/myblogs/{{user.id}}";
       })
       .catch(err => {
           console.log("login fail");

@@ -17,6 +17,10 @@
 <h2 class="center feature-text top-spacer">{{thisUser.nickname}}'s Articles</h2>
 
   <div class="card-deck articleBox">
+    <div class="filler-box">
+      <h3 id="fillerText" class="top-spacer midtitle">This user hasn't written any posts yet :(</h3>
+      <img id="fillerImg" src="../img/sad.png" class="filler-img top-spacer">
+    </div>
     <div class="card mr-3 profileArticle" ng-repeat="userBlog in blogs">
       <img class="card-img-top" src="{{userBlog.header}}" alt="Card image cap">
       <div class="card-body">

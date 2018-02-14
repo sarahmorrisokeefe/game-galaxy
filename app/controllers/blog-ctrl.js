@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('BlogCtrl', function($scope, BlogsFactory, $routeParams, GamesFactory) {
+  .controller('BlogCtrl', function($scope, BlogsFactory, $routeParams, GamesFactory, $location) {
 
     $scope.title = "Single Blog";
 
@@ -34,7 +34,7 @@ angular
     $scope.disqusConfig = {
       disqus_shortname: 'gamegalaxy',
       disqus_identifier: `${$routeParams.id}`,
-      disqus_url: `localhost:8080/#!/blogs/${$routeParams.id}`
+      disqus_url: `${$location.path()}`
     };
   });
 

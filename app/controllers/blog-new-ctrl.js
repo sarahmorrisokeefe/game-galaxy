@@ -18,7 +18,8 @@ angular
       userphoto: "",
       mobyID: "",
       game: "",
-      cover: ""
+      cover: "",
+      tags: []
     };
 
     $scope.getMobyResults = (searchQuery) => {

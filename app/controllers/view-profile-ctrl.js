@@ -18,6 +18,9 @@ angular
       BlogsFactory.getUsersBlogs($scope.thisUser.uid)
       .then(blogs => {
         $scope.blogs = blogs;
+        if ($scope.blogs.length === 0) {
+          $(".filler-box").show();
+        }
       });
     });
 

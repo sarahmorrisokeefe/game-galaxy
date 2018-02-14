@@ -1,21 +1,26 @@
-<h4 class="center feature-text top-spacer">
-  Welcome to the {{title}} page
+<h4 class="center feature-text huge top-spacer">
+  {{title}}
 </h4>
 
 <div class="editorBox">
     <form>
       <div class="form-group">
-        <label for="blogTitle">Title</label>
+        <label for="blogTitle" class="form-title">Title</label>
         <input type="text" class="form-control" id="blogTitle" ng-model="blog.title" aria-describedby="blogTitle" placeholder="Pick a nifty and descriptive title">
         <small id="blogTitle" class="form-text text-muted">The title will draw users to your post as well as will be the primary element users find your content when searching</small>
       </div>
       <div class="form-group">
-        <label for="headerImg">Header Image URL <span class="fancy">An original screenshot or other creative photo is recommended and can increase view count</span></label>
+        <label for="headerImg" class="form-title">Header Image URL <span class="fancy">An original screenshot or other creative photo is recommended and can increase view count</span></label>
         <input type="text" class="form-control" id="headerImg" ng-model="blog.header" placeholder="Paste image address here...">
       </div>
-
       <div class="form-group">
-          <label for="mobySearch">Select the game this post is about - <a href="http://www.mobygames.com/" class="fancy upscale">Powered by MobyGames</a></label>
+        <label for="tagger" class="form-title">Add #tags<span class="fancy"></span></label>        
+        <tags-input ng-model="blog.tags" id="tagger"></tags-input>
+        <small id="tagger" class="form-text text-muted">5 or more tags are suggested. #Tags make it easier for others to find your post </small>        
+      </div>
+
+      <div class="form-group top-spacer">
+          <label for="mobySearch" class="form-title">Select the game this post is about <a href="http://www.mobygames.com/" class="fancy">- Powered by MobyGames</a></label>
           <input type="text" class="form-control" id="mobySearch" ng-model="searchQuery" placeholder="Type the game's title here...">
           <div class="center top-spacer">
             <button ng-click="getMobyResults(searchQuery)" class="btn btn-success">Search MobyGames API</button>
@@ -77,7 +82,7 @@
   </div>
   
   <div class="center">
-    <button type="submit" class="btn btn-success bigButton" ng-click="submitBlog()">Submit</button>
+    <button class="btn btn-success bigButton" ng-click="submitBlog()">Submit</button>
   </div>
 
   <div id="toastAlert">Your post is published! Search for it now 😊</div>
@@ -93,7 +98,3 @@
   <p class="editorBox" ng-bind-html="blog.body"></p>
 
   <hr>
-
-  <div class="editorBox">
-  <dir-disqus config="disqusConfig2"></dir-disqus>
-  </div>
