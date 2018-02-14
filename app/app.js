@@ -14,12 +14,11 @@ let authenticate = (AuthFactory) =>
 });
 
 angular
-  .module('GameGalaxy', ["ngRoute", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize"])
+  .module('GameGalaxy', ["ngRoute", "ngTagsInput", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize", "ngTagsInput"])
   .constant("FBUrl", "https://galaxy-game-blog.firebaseio.com/")
   .config($routeProvider => {
     $routeProvider
       .when("/home", {
-        // TODO:  add more jumbotrons detailing features and instructions
         templateUrl: "partials/home-splash.html",
         controller: "HomeCtrl"
       })
@@ -32,32 +31,33 @@ angular
         controller: "CommunityCtrl",
       })
       .when("/profile", {
-        // TODO: set conditional IF that PUTS instead of POSTS user info using uid        
         templateUrl: "partials/profile.html",
         controller: "ProfileCtrl",
         resolve: { authenticate }        
       })
       .when("/community/view/:key", {
-        // TODO: add full profile info for placeholder users on firebase
+        // TODO: fix profile header display bc it is ugly
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
       })
       .when("/myblogs/:uid", {
         templateUrl: "partials/my-blogs.html",
         controller: "MyBlogsCtrl",
+        resolve: { authenticate }                
       })
       .when("/blogs/new", {
-        // TODO: fix toast pop on blog submit
         templateUrl: "partials/blog-edit.html",
         controller: "BlogNewCtrl",
         resolve: { authenticate }
       })
       .when("/blogs/:id", {
+        // TODO: add tags to placeholder posts
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
       })
       .when("/blogs/:id/edit", {
-        // TODO: page still in progress 
+        // TODO: add http get and scope.model to blog-edit-ctrl
+        // TODO: write http put for updating post
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
         resolve: { authenticate }        

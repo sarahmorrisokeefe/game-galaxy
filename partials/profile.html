@@ -1,4 +1,4 @@
-<h4 class="center">
+<h4 class="center feature-text top-spacer">
   Edit your {{title}} below
 </h4>
 
@@ -35,6 +35,9 @@
   </form>
 </form>
 
+<div id="toastAlert">Your info updated is published! Changes may take up to 24 hours</div>
+
 <div class="center">
-<button type="button" class="btn btn-info center" ng-click="clickSubmit()">Update</button>
+<button type="button" id="postBtn" class="btn btn-success center" ng-click="clickSubmit()">Create Local Profile</button>
+<button type="button" id="putBtn" class="btn btn-info center" ng-click="updateSubmit()">Update Local Profile</button>
 </div>

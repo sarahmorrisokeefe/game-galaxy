@@ -18,7 +18,8 @@ angular
       userphoto: "",
       mobyID: "",
       game: "",
-      cover: ""
+      cover: "",
+      tags: []
     };
 
     $scope.getMobyResults = (searchQuery) => {
@@ -90,5 +91,5 @@ angular
 
     $scope.today = $scope.mm + '/' + $scope.dd + '/' + $scope.yyyy;
     $scope.blog.date = $scope.today;
-
+  
   });

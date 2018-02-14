@@ -1,20 +1,26 @@
-<h4 class="center">
-  Welcome to the {{title}} page
+<h4 class="center feature-text huge top-spacer">
+  {{title}}
 </h4>
 
 <div class="editorBox">
     <form>
       <div class="form-group">
-        <label for="blogTitle">Title</label>
+        <label for="blogTitle" class="form-title">Title</label>
         <input type="text" class="form-control" id="blogTitle" ng-model="blog.title" aria-describedby="blogTitle" placeholder="Pick a nifty and descriptive title">
         <small id="blogTitle" class="form-text text-muted">The title will draw users to your post as well as will be the primary element users find your content when searching</small>
       </div>
       <div class="form-group">
-        <label for="headerImg">Header Image URL <span class="fancy">An original screenshot or other creative photo is recommended and can increase view count</span></label>
+        <label for="headerImg" class="form-title">Header Image URL <span class="fancy">An original screenshot or other creative photo is recommended and can increase view count</span></label>
         <input type="text" class="form-control" id="headerImg" ng-model="blog.header" placeholder="Paste image address here...">
       </div>
       <div class="form-group">
-          <label for="mobySearch">Select the game this post is about - <a href="http://www.mobygames.com/" class="fancy upscale">Powered by MobyGames</a></label>
+        <label for="tagger" class="form-title">Add #tags<span class="fancy"></span></label>        
+        <tags-input ng-model="blog.tags" id="tagger"></tags-input>
+        <small id="tagger" class="form-text text-muted">5 or more tags are suggested. #Tags make it easier for others to find your post </small>        
+      </div>
+
+      <div class="form-group top-spacer">
+          <label for="mobySearch" class="form-title">Select the game this post is about <a href="http://www.mobygames.com/" class="fancy">- Powered by MobyGames</a></label>
           <input type="text" class="form-control" id="mobySearch" ng-model="searchQuery" placeholder="Type the game's title here...">
           <div class="center top-spacer">
             <button ng-click="getMobyResults(searchQuery)" class="btn btn-success">Search MobyGames API</button>
@@ -25,7 +31,7 @@
             <div class="card-deck" id="mobyDeck">
               <div class="card mobyGameCard center" ng-repeat="game in games">
                 <div class="lead">
-                  <img class="card-img-top size-holder" src="{{game.sample_cover.image}}" alt="Card image cap">
+                  <img class="card-img-top size-holder" ng-src="{{game.sample_cover.image || '../img/error.jpg'}}" alt="Game cover">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title mobyTitle">{{game.title}}</h5>
@@ -66,18 +72,6 @@
           <button class="ql-bold" ng-attr-title="{{'Bold'}}"></button>
         </span>
         <span class="ql-formats">
-          <select class="ql-align" ng-attr-title="{{'Aligment'}}">
-            <option selected></option>
-            <option value="center"></option>
-            <option value="right"></option>
-            <option value="justify"></option>
-          </select>
-          <select class="ql-size">
-            <option value="small"></option>
-            <option selected></option>
-            <option value="large"></option>
-            <option value="huge"></option>
-          </select>
           <button class="ql-script" value="sub"></button>
           <button class="ql-script" value="super"></button>
           <button class="ql-image"></button>
@@ -88,7 +82,7 @@
   </div>
   
   <div class="center">
-    <button type="submit" class="btn btn-success bigButton" ng-click="submitBlog()">Submit</button>
+    <button class="btn btn-success bigButton" ng-click="submitBlog()">Submit</button>
   </div>
 
   <div id="toastAlert">Your post is published! Search for it now 😊</div>
@@ -104,7 +98,3 @@
   <p class="editorBox" ng-bind-html="blog.body"></p>
 
   <hr>
-
-  <div class="editorBox">
-  <dir-disqus config="disqusConfig2"></dir-disqus>
-  </div>

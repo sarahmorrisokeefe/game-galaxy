@@ -8,6 +8,21 @@ body {
   min-width: 760px;
 }
 
+.home-flex-jumbotron {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.home-flex-child {
+  max-width: 30%;
+}
+
+.home-info-icon {
+  height: 100px;
+  width: 120px;
+}
+
 input {
   border-radius: 15px;
   padding-left: 1vh;
@@ -92,17 +107,6 @@ main {
   margin: 1vh auto;
 }
 
-.modal-align {
-  margin: 18% 18%;
-  text-align: center;
-  color: white;
-}
-
-.modal-content {
-  color: black;
-  border: 1px solid rgb(119, 118, 118);
-}
-
 .warning {
   color: red;
   font-family: "Press Start 2P";
@@ -152,7 +156,7 @@ main {
 .search-icon-size {
   max-width: 36px;
   max-height: 36px;
-  padding-right: 8px;
+  padding-right: 12px;
 }
 
 .main-icon-size {
@@ -295,6 +299,7 @@ ul {
 .flexChild-1 {
   width: 60%;
   margin: 0 auto;
+  text-align: left;  
 }
 
 .flexChild-2 {
@@ -306,6 +311,16 @@ ul {
   border-radius: 10px;
   border: 1px solid black;
   transition: box-shadow 0.3s;
+}
+
+.view-user-bio {
+  max-width: 50%;
+  margin-left: 25%;
+  margin-right: 19%;
+}
+
+.hide {
+  display: none;
 }
 
 .flexChild-2:hover {
@@ -367,24 +382,6 @@ ul {
   background-color: rgb(48, 67, 155);
 }
 
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
 .midtitle {
   font-size: .75rem;
 }
@@ -395,6 +392,39 @@ ul {
 
 .huge {
   font-size: 2em;
+}
+
+.form-title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.blog-tag {
+  background-color: rgb(33, 138, 33);
+  border-radius: 20px;
+  display: inline;
+  padding: 0.7vw;
+  margin: 0.3vw;
+  color: white;
+  transition: box-shadow 0.4s;
+}
+
+.filler-box {
+  text-align: center;
+  width: 100%;
+  display: none;
+}
+
+.filler-img {
+  max-width: 15vw;
+  max-height: 15vh;
+  border-radius: 100px;
+  border: 5px solid black;
+}
+
+.blog-tag:hover {
+  box-shadow: 0px 0px 7px 3px rgba(170, 216, 218, 0.7);
+  cursor: pointer;
 }
 
 .header-photo-box {
@@ -453,6 +483,43 @@ ul {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+// tags
+
+.tag-personnel {
+  background-color: #DAF991;
+  border: 1px solid #C2F456;
+}
+.tag {
+  margin: 2px;
+  padding: 6px 5px;
+}
+.tag {
+  border-radius: 5px;
+  color: #000000;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 1px;
+  padding: 2px 5px;
+}
+.tag a span.tag-icon {
+  background-position: -312px 0 !important;
+  margin: 0 !important;
+  width: 14px !important;
+}
+.tag .tag-icon {
+  background-image: url("glyphicons-halflings.png");
+  background-position: 0 -48px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 14px;
+  line-height: 14px;
+  margin-top: 1px;
+  vertical-align: text-top;
+  width: 14px;
+}
+
+// animations
+
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
@@ -461,4 +528,22 @@ ul {
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

@@ -11,10 +11,19 @@
 </div>
 
 <div class="jumbotron center">
+
   <div class="main-blog-content">
-    <p class="lead flexChild-1" ng-bind-html="thisBlog.body"></p>
+    <div class="flexChild-1">
+    <p class="lead" ng-bind-html="thisBlog.body"></p>
+    <br>
+    <h3 class="feature-text bot-spacer">#Tags:</h3>
+    <ul>
+      <li class="blog-tag" ng-repeat="tag in thisBlog.tags">{{tag.text}}</li>    
+    </ul>
+    </div>
+
     <div class="game-sidebar flexChild-2">
-      <img class="sidebar-cover-img" src="{{moby.cover}}">
+      <img class="sidebar-cover-img" ng-src="{{moby.cover || '../img/error.jpg'}}">
       <hr>
       <h5 class="eightbit subtitle">Game:</h5>
       <h6>{{moby.game}}</h6>
@@ -37,11 +46,15 @@
       <p ng-bind-html="moby.description"></p>
     </div>
   </div>
+
+
   <hr class="my-4">
   <p class="fancy upscale">Join the bloody conversation. Comment below and let your voice be heard in the galaxy</p>
+  
   <p class="lead">
     <div class="editorBox">
       <dir-disqus config="disqusConfig"></dir-disqus>
     </div>    
   </p>
+
 </div>

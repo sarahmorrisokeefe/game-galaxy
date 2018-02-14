@@ -19,12 +19,6 @@ angular
       }
     });
 
-    // let openModal = () => {
-    //   $('#myModal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus');
-    //   });
-    // };
-
     $scope.deleteThis = id => {
       BlogsFactory.deleteBlog(id)
       .then( () => {
