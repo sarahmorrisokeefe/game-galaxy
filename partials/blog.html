@@ -20,10 +20,12 @@
       </div>
     <p ng-bind-html="thisBlog.body"></p>
     <br>
-    <h3 class="feature-text bot-spacer">#Tags:</h3>
-    <ul>
-      <li class="blog-tag blog-li" ng-repeat="tag in thisBlog.tags">{{tag.text}}</li>    
-    </ul>
+    <div class="tags-box">
+      <h3 class="feature-text bot-spacer">#Tags:</h3>
+      <ul>
+        <li class="blog-tag blog-li" ng-repeat="tag in thisBlog.tags">{{tag.text}}</li>    
+      </ul>
+    </div>
     </div>
 
     <div class="game-sidebar flexChild-2">

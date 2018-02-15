@@ -4,10 +4,8 @@ let authenticate = (AuthFactory) =>
   new Promise((resolve, reject) => {
     AuthFactory.usercheck().then(user => {
       if (user) {
-        console.log("user check - pass");
         resolve();
       } else {
-        console.log("user check - fail");
         reject();
       }
   });
@@ -36,7 +34,6 @@ angular
         resolve: { authenticate }        
       })
       .when("/community/view/:key", {
-        // TODO: fix profile header display bc it is ugly
         templateUrl: "partials/view-profile.html",
         controller: "ViewProfileCtrl",
       })

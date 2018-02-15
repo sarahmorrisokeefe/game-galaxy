@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-color: #f6f6f6;
-  // max-width: 1100px;
   margin: auto;
   min-width: 760px;
 }
@@ -12,6 +11,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.tags-box {
+  width: 190%;
 }
 
 .view-count-eye {
@@ -119,7 +122,7 @@ main {
 }
 
 .articleBox {
-  width: 70%;
+  width: 60%;
   margin: 1vh auto;
 }
 
@@ -495,10 +498,7 @@ ul {
 
 #toastAlert {
   visibility: hidden;
-  // min-width: 250px;
-  // min-height: 10vh;
   max-height: 4vh;
-  // margin-left: -125px;
   font-size: 1em;
   background-color: rgb(91, 150, 121);
   color: #fff;
@@ -522,10 +522,12 @@ ul {
   background-color: #DAF991;
   border: 1px solid #C2F456;
 }
+
 .tag {
   margin: 2px;
   padding: 6px 5px;
 }
+
 .tag {
   border-radius: 5px;
   color: #000000;
@@ -534,11 +536,13 @@ ul {
   margin-right: 1px;
   padding: 2px 5px;
 }
+
 .tag a span.tag-icon {
   background-position: -312px 0 !important;
   margin: 0 !important;
   width: 14px !important;
 }
+
 .tag .tag-icon {
   background-image: url("glyphicons-halflings.png");
   background-position: 0 -48px;

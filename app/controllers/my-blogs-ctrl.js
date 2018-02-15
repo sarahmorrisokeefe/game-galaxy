@@ -9,8 +9,6 @@ angular
 
     firebase.auth().onAuthStateChanged(function(user) {
       if(user) {
-        // $scope.user.uid = firebase.auth().currentUser.uid;
-        console.log(firebase.auth().currentUser);
         $scope.thisUser = firebase.auth().currentUser;
         BlogsFactory.getUsersBlogs($scope.thisUser.uid)
         .then(blogs => {
@@ -25,7 +23,6 @@ angular
     $scope.deleteThis = id => {
       BlogsFactory.deleteBlog(id)
       .then( () => {
-        console.log("blog post deleted");
         $route.reload();
       });
     };

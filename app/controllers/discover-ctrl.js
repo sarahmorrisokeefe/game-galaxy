@@ -10,7 +10,6 @@ angular
     BlogsFactory.getAllBlogs()
       .then(blogsArr => {
         $scope.blogs = FilterFactory.shuffleArr(blogsArr);
-        console.log(blogsArr);
     });
 
     $(".diceImg").click(() => {
@@ -20,7 +19,7 @@ angular
     function move() {
       var elem = document.getElementById("myBar");   
       var width = 1;
-      var id = $window.setInterval(frame, 8);
+      var id = $window.setInterval(frame, 14);
       function frame() {
         if (width >= 100) {
           $window.clearInterval(id);
