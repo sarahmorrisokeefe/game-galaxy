@@ -51,13 +51,10 @@ angular
         resolve: { authenticate }
       })
       .when("/blogs/:id", {
-        // TODO: add tags to placeholder posts
         templateUrl: "partials/blog.html",
         controller: "BlogCtrl",
       })
       .when("/blogs/:id/edit", {
-        // TODO: add http get and scope.model to blog-edit-ctrl
-        // TODO: write http put for updating post
         templateUrl: "partials/blog-edit.html",
         controller: "BlogEditCtrl",
         resolve: { authenticate }        

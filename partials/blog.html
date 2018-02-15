@@ -14,7 +14,11 @@
 
   <div class="main-blog-content">
     <div class="flexChild-1">
-    <p class="lead" ng-bind-html="thisBlog.body"></p>
+      <div class="view-box">
+        <img src="../img/eye.png" class="view-count-eye">
+        <h4 class="view-count">{{thisBlog.views}}</h4>
+      </div>
+    <p ng-bind-html="thisBlog.body"></p>
     <br>
     <h3 class="feature-text bot-spacer">#Tags:</h3>
     <ul>
@@ -23,6 +27,9 @@
     </div>
 
     <div class="game-sidebar flexChild-2">
+      <h5>Game info provided by</h5>
+      <a href="https://www.mobygames.com"><img src="../img/mobygames-logo.png" class="mobylogo bot-spacer"></a>
+      <br>
       <img class="sidebar-cover-img" ng-src="{{moby.cover || '../img/error.jpg'}}">
       <hr>
       <h5 class="eightbit subtitle">Game:</h5>

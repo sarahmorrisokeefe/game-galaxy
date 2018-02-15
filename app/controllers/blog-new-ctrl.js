@@ -19,7 +19,8 @@ angular
       mobyID: "",
       game: "",
       cover: "",
-      tags: []
+      tags: [],
+      views: "0"
     };
 
     $scope.getMobyResults = (searchQuery) => {

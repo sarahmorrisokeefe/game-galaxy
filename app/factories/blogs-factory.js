@@ -109,9 +109,24 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
         });
     });
   }
+
+  function addView(views, key) {
+    return $q((resolve, reject) => {
+      $http
+        .patch(`${FBUrl}/blogs/${key}.json`, JSON.stringify(views))
+        .then(data => {
+          console.log("View count +1", data);
+          resolve(data);
+        })
+        .catch(error => {
+          console.log(error);
+          reject(error);
+        });
+    });
+  }
   
   
 
-  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs, deleteBlog, updateBlog };
+  return { submitNewBlog, getAllBlogs, getThisBlog, searchBlogs, getUsersBlogs, deleteBlog, updateBlog, addView };
 
 });
