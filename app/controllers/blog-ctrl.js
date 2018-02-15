@@ -15,11 +15,20 @@ angular
       genres: "",
     };
 
+    $scope.viewObject = {
+      views: ""
+    };
+
     BlogsFactory.getThisBlog($routeParams.id)
         .then(item => {
       console.log('item', item);
       item.id = $routeParams.id;
       $scope.thisBlog = item;
+      $scope.viewObject.views = $scope.thisBlog.views + 1;
+      BlogsFactory.addView($scope.viewObject, $scope.thisBlog.id)
+      .then( (views) => {
+        $scope.thisBlog.views = views.data.views;
+      });
       GamesFactory.getBlogMobyGame($scope.thisBlog.mobyID)
       .then( (title) => {
         console.log(title.games[0]);
