@@ -16,7 +16,7 @@
       <div class="form-group">
         <label for="tagger" class="form-title">Add #tags<span class="fancy"></span></label>        
         <tags-input ng-model="blog.tags" id="tagger"></tags-input>
-        <small id="tagger" class="form-text text-muted">5 or more tags are suggested. #Tags make it easier for others to find your post </small>        
+        <small id="tagger" class="form-text text-muted">5 or more tags are suggested. #Tags must be <strong>3 characters</strong> or more </small>        
       </div>
 
       <div class="form-group top-spacer">
@@ -89,8 +89,7 @@
       <button class="btn btn-warning bigButton" ng-click="updatePost()">Update</button>
     </div>
 
-  <div id="toastAlert" class="upscale">Changes saved! 😊 <br>
-     Head to <a href="#!/myblogs/{{user.uid}}">your blogs</a> to view it now</div>
+  <div id="toastAlert" class="upscale">Changes saved! 😊</div>
   
   <br>
 

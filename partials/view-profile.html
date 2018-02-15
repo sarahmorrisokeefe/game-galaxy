@@ -3,12 +3,16 @@
 </h2>
 
 <div class="card mb-3 relative profileCard">
+  <div class="profile-flex">
+  <div class="profile-flex-child">
   <img class="viewProfilePicture absolute" src="{{thisUser.customPhoto}}" alt="user profile picture">
-  <div class="card-body top-spacer">
-    <h5 class="card-title">{{thisUser.formal}}</h5>
+  </div>
+  <div class="card-body top-spacer profile-flex-child">
+    <h5 class="card-title">Name: {{thisUser.formal}}</h5>
     <h5>Favorite Genre: {{thisUser.genre[0]}}</h5>
     <p class="card-text view-user-bio">{{thisUser.bio}}</p>
     <p class="card-text"><small class="text-muted">Date Joined: {{thisUser.joinDate}}</small></p>
+  </div>
   </div>
 </div>
 

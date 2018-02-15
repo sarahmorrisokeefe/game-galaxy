@@ -12,7 +12,7 @@ angular
       $window.setTimeout(
         function() {
           toast.className = "hide";
-        }, 5000);
+        }, 3000);
     };
 
     BlogsFactory.getThisBlog($routeParams.id)
@@ -26,7 +26,7 @@ angular
       BlogsFactory.updateBlog($routeParams.id, $scope.blog)
       .then((data) => {
         console.log("Blog updated", data);
-        $('html, body').animate({ scrollTop: 0 }, 'fast');
+        // $('html, body').animate({ scrollTop: 0 }, 'fast');
         $scope.popTheToast();
       });
     };

@@ -322,10 +322,18 @@ ul {
   max-height: 10vh;
 }
 
+.profile-flex {
+  display: flex;
+}
+
+.profile-flex-child {
+  width: 20%;
+  margin: 0 auto;
+}
+
 .view-user-bio {
-  max-width: 50%;
-  margin-left: 25%;
-  margin-right: 19%;
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .hide {
@@ -351,7 +359,7 @@ ul {
   border-radius: 100%;
   margin: 2vh auto;
   top: 2vh;
-  left: 2vh;
+  left: 4vh;
 }
 
 .profileCard {
@@ -428,7 +436,6 @@ ul {
   max-width: 15vw;
   max-height: 15vh;
   border-radius: 100px;
-  border: 5px solid black;
 }
 
 .blog-tag:hover {
@@ -472,15 +479,16 @@ ul {
 
 #toastAlert {
   visibility: hidden;
-  min-width: 250px;
-  max-height: 10vh;
-  margin-left: -125px;
-  font-size: 0.8em;
+  // min-width: 250px;
+  // min-height: 10vh;
+  max-height: 4vh;
+  // margin-left: -125px;
+  font-size: 1em;
   background-color: rgb(91, 150, 121);
   color: #fff;
   text-align: center;
   border-radius: 10px;
-  padding: 10px;
+  padding: 3vh 3vw 6vh;
   position: fixed;
   z-index: 1; 
   right: 2vw; 
@@ -489,7 +497,7 @@ ul {
 
 #toastAlert.show {
   visibility: visible;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 3s;
 }
 
 // tags
@@ -531,11 +539,11 @@ ul {
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 50px; opacity: 1;}
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
+  from {bottom: 50px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
 
