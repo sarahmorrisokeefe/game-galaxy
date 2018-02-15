@@ -20,7 +20,7 @@ angular
       game: "",
       cover: "",
       tags: [],
-      views: "0"
+      views: 0
     };
 
     $scope.getMobyResults = (searchQuery) => {

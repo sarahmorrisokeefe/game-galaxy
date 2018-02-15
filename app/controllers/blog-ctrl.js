@@ -40,10 +40,14 @@ angular
       });
     });
 
+    $scope.path = $location.path();
+
+    console.log($scope.path);
+
     $scope.disqusConfig = {
       disqus_shortname: 'gamegalaxy',
       disqus_identifier: `${$routeParams.id}`,
-      disqus_url: `${$location.path()}`
+      disqus_url: `localhost:8080/#!/blogs/${$routeParams.id}`
     };
   });
 
