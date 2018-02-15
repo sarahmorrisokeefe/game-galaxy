@@ -12,7 +12,6 @@ angular
 
     UserFactory.getSingleUser($routeParams.key)
       .then(profile => {
-      console.log('profile', profile);
       profile.key = $routeParams.key;
       $scope.thisUser = profile;
       BlogsFactory.getUsersBlogs($scope.thisUser.uid)

@@ -26,7 +26,6 @@ angular
     $scope.getMobyResults = (searchQuery) => {
       GamesFactory.searchMobyGames(searchQuery)
       .then(data => {
-        console.log(data);
         $scope.games = data.games;
       });
     };
@@ -56,7 +55,6 @@ angular
     $scope.submitBlog = () => {
       BlogsFactory.submitNewBlog($scope.blog);
       $('.alert').alert();
-      console.log("New article submitted to database");
       $scope.popTheToast();
       $window.location.href = "#!/discover";
     };
@@ -68,14 +66,6 @@ angular
         $scope.blog.userphoto = firebase.auth().currentUser.photoURL;                   
       }
     });
-    
-    $scope.disqusConfig2 = {
-      disqus_shortname: 'gamegalaxy',
-      disqus_identifier: '22222',
-      disqus_url: 'http://localhost:8080/#!/blogs/new',
-      disqus_title: 'New Blog'
-      // disqus_developer: 1
-    };
 
     $scope.today = new Date();
     $scope.dd = $scope.today.getDate();

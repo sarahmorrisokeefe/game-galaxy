@@ -11,7 +11,6 @@ angular
     UserFactory.getAllUsers()
     .then(userArr => {
       $scope.users = FilterFactory.shuffleArr(userArr);
-      console.log(userArr);
     });
 
     function move() {

@@ -10,7 +10,6 @@ angular
 
     UserFactory.checkForUser(firebase.auth().currentUser.uid)
     .then((data) => {
-      console.log('data', data);
       if (data.length === 0) {
         $("#putBtn").hide();
       } else {
@@ -35,14 +34,11 @@ angular
 
     $scope.clickSubmit = () => {
       UserFactory.addNewUser($scope.user);
-      console.log('new user added to database');
       $route.reload();
     };
 
     $scope.updateSubmit = () => {
-      console.log($scope.key);
       UserFactory.updateUser($scope.key, $scope.user);
-      console.log('user info update activated');
       $scope.popTheToast();
     };
 

@@ -11,7 +11,6 @@ angular
     BlogsFactory.getAllBlogs()
       .then(blogsArr => {
         $scope.blogs = blogsArr;
-        console.log(blogsArr);
     });
 
   });

@@ -7,11 +7,9 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
       $http
         .post(`${FBUrl}/blogs.json`, JSON.stringify(blogObject))
         .then(data => {
-          console.log("New Item posted", data);
           resolve(data);
         })
         .catch(error => {
-          console.log(error);
           reject(error);
         });
     });
@@ -48,11 +46,9 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
   }
 
   function searchBlogs(title) {
-    console.log("clicked search");
     return $q((resolve,reject) => {
       $http.get(`${FBUrl}/blogs.json?orderBy="title"&equalTo="${title}"`)
       .then(({ data }) => {
-        console.log("search data returned", data);
         let searchArr = Object.keys(data).map(blogKey => {
           data[blogKey].id = blogKey;
           return (data[blogKey]);
@@ -69,7 +65,6 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
     return $q((resolve,reject) => {
       $http.get(`${FBUrl}/blogs.json?orderBy="uid"&equalTo="${uid}"`)
       .then(({ data }) => {
-        console.log("user blogs returned", data);
         let blogsArr = Object.keys(data).map(blogKey => {
           data[blogKey].id = blogKey;
           return (data[blogKey]);
@@ -100,11 +95,9 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
       $http
         .put(`${FBUrl}/blogs/${key}.json`, JSON.stringify(blogObject))
         .then(data => {
-          console.log("Existing Post updated", data);
           resolve(data);
         })
         .catch(error => {
-          console.log(error);
           reject(error);
         });
     });
@@ -115,11 +108,9 @@ angular.module("GameGalaxy").factory("BlogsFactory", (FBUrl, $http, $q) => {
       $http
         .patch(`${FBUrl}/blogs/${key}.json`, JSON.stringify(views))
         .then(data => {
-          console.log("View count +1", data);
           resolve(data);
         })
         .catch(error => {
-          console.log(error);
           reject(error);
         });
     });

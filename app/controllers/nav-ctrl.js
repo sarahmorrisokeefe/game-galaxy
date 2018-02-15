@@ -11,11 +11,9 @@ angular
     $scope.loginUser = () => {
       AuthFactory.login()
       .then((user) => {
-          console.log("login success");
           $window.location.href = "#!/myblogs/{{user.id}}";
       })
       .catch(err => {
-          console.log("login fail");
       });
     };
 
@@ -30,11 +28,9 @@ angular
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
           $scope.$apply($scope.user = true);
-          console.log('user info provided by nav', user);
           $scope.user = user;
           UserFactory.checkForUser($scope.user.uid)
           .then(data => {
-            console.log('nav user factory check', data);
             $scope.user.key = data[0].key;
           });
       } else {
