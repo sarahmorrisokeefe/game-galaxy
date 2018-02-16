@@ -16,7 +16,7 @@
 <div class="editorBox" id="content">
 <div class="card-columns">
     <div class="card" style="margin-bottom: 0 !important;" ng-repeat="user in users | filter: {nickname: searchname}">
-      <img class="card-img-top" src="{{user.customPhoto}}" alt="Card image cap">
+      <img class="card-img-top" ng-src="{{user.customPhoto}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{user.nickname}}</h5>
         <h6 class="card-title">Favorite Genre: {{user.genre[0]}}</h6>              

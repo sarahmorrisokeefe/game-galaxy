@@ -3,5 +3,7 @@ node_modules
 .sass-cache
 dist
 stylesheets
-app/values/*.js
 package-lock.json
+app/values
+.firebaserc
+firebase.json

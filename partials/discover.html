@@ -1,5 +1,5 @@
-<h4 class="center feature-text top-spacer">
-  Welcome to the {{title}} page
+<h4 class="center feature-text top-spacer huge">
+  {{title}}
 </h4>
 
 <h5 class="center fancy upscale">Check out three random articles<br>Find something new!<br>Click the dice to roll again...</h5>
@@ -8,15 +8,11 @@
 <section class="dice"><img src="../img/dice.png" class="diceImg"><img src="../img/dice.png" class="diceImg"></section>
 </div>
 
-<div class="progress editorBox" id="myProgress">
-    <div id="myBar"></div>
-</div>
-
-
 <div class="discoverBox" id="content">
     <div>
-        <div class="card" style="width: 60vw !important" ng-repeat="blog in blogs | limitTo: limit">
-          <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+
+        <div class="card" style="width: 55vw !important" ng-repeat="blog in blogs | limitTo: limit">
+          <img class="card-img-top" ng-src="{{blog.header}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>
             <h6 class="card-title">Published by {{blog.author}}</h6>            
@@ -26,5 +22,10 @@
             <small class="text-muted">Last updated on {{blog.date}}</small>
           </div>
         </div>
+
       </div>
+</div>
+
+<div class="progress editorBox" id="myProgress">
+  <div id="myBar"></div>
 </div>
