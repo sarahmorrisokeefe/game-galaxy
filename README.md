@@ -51,6 +51,10 @@ http-server
  - Joe, Emily, Jufe, and Greg for being incredible instructors and friends
  - All of C23 for being awesome as well as testing, feedback, and additional eyes
  - Guil for Treehouse for always being there for me
+ - Ethan Gach of Kotaku for the example article below
+ 
+# Example article:
+ 
  
  ![](docs/gg-repo6.png)
  ![](docs/gg-repo3.png)
