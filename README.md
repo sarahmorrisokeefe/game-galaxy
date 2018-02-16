@@ -42,3 +42,9 @@ npm install
 grunt
 http-server
 ```
+
+# Special Thanks
+
+ - Joe, Emily, Jufe, and Greg for being incredible instructors and friends
+ - All of C23 for being awesome as well as testing, feedback, and additional eyes
+ - Guil for Treehouse for always being there for me
