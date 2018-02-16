@@ -2,6 +2,8 @@
 
 Game Galaxy is a gaming-oriented blog where users can create and edit profiles, and create, edit and delete blog posts.
 
+It is my Front-End Capstone for Nashville Software School.
+
 # Tools:
 
 HTML, CSS, Sass, Bootstrap, Javascript, JQuery, AngularJS, Firebase
@@ -24,7 +26,7 @@ Visit https://galaxy-game-blog.firebaseapp.com/#!/home to try it out yourself
 
 ~ or ~
 
-fork/download repo (requires npm and grunt_
+fork/download repo (requires npm, a local http server, and grunt) and...
 
 ```
 cd game-galaxy
