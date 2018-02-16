@@ -5,6 +5,7 @@ Game Galaxy is a gaming-oriented blog where users can create and edit profiles, 
 It is my Front-End Capstone for Nashville Software School.
 
 ![](docs/gg-repo.png)
+![](docs/gg-repo5.png)
 
 # Tools:
 
@@ -50,3 +51,6 @@ http-server
  - Joe, Emily, Jufe, and Greg for being incredible instructors and friends
  - All of C23 for being awesome as well as testing, feedback, and additional eyes
  - Guil for Treehouse for always being there for me
+ 
+ ![](docs/gg-repo2.png)
+ ![](docs/gg-repo3.png)
