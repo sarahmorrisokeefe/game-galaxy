@@ -52,5 +52,8 @@ http-server
  - All of C23 for being awesome as well as testing, feedback, and additional eyes
  - Guil for Treehouse for always being there for me
  
- ![](docs/gg-repo2.png)
- ![](docs/gg-repo3.png)
+ ![](docs/gg-repo6.png)
+
+ ![](docs/gg-repo7.png)
+ ![](docs/gg-repo8.png)
+ ![](docs/gg-repo9.png)
