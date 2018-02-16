@@ -3,7 +3,7 @@
 angular
   .module('GameGalaxy')
   .controller('DiscoverCtrl', function($scope, BlogsFactory, FilterFactory, $route, $window) {
-    $scope.title = "Discover";
+    $scope.title = "DISCOVER";
 
     $scope.limit = 3;
     
@@ -19,12 +19,12 @@ angular
     function move() {
       var elem = document.getElementById("myBar");   
       var width = 1;
-      var id = $window.setInterval(frame, 14);
+      var id = $window.setInterval(frame, 8);
       function frame() {
         if (width >= 100) {
           $window.clearInterval(id);
-          document.getElementById('content').style.display='block';
-          document.getElementById('myProgress').style.display='none';          
+          document.getElementById('content').style.visibility='visible';
+          document.getElementById('myProgress').style.visibility='hidden';          
         } else {
           width++; 
           elem.style.width = width + '%'; 

@@ -56,7 +56,7 @@ angular
       BlogsFactory.submitNewBlog($scope.blog);
       $('.alert').alert();
       $scope.popTheToast();
-      $window.location.href = "#!/discover";
+      $window.location.href = "#!/home";
     };
 
     firebase.auth().onAuthStateChanged(function(user) {
