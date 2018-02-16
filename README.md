@@ -53,7 +53,7 @@ http-server
  - Guil for Treehouse for always being there for me
  
  ![](docs/gg-repo6.png)
-
+ ![](docs/gg-repo3.png)
  ![](docs/gg-repo7.png)
  ![](docs/gg-repo8.png)
  ![](docs/gg-repo9.png)
