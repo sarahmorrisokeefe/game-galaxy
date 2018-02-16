@@ -18,15 +18,17 @@ It is my Front-End Capstone for Nashville Software School.
 
 # Libraries and Credits
 
-[KillerCodeMonkey's ng-Quill Component](https://github.com/KillerCodeMonkey/ng-quill)
+KillerCodeMonkey's [ng-Quill Component](https://github.com/KillerCodeMonkey/ng-quill)
 
-[Michael Bromley's Disqus directive](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/disqus)
+Michael Bromley's [Disqus Directive](https://github.com/michaelbromley/angularUtils/tree/master/src/directives/disqus)
 
-[Simon Carless and MobyGames/MobyGames API](http://www.mobygames.com/)
+Simon Carless and [MobyGames/MobyGames API](http://www.mobygames.com/)
 
 [ngSanitize](https://docs.angularjs.org/api/ngSanitize)
 
-[Michael Benford's ngTagsInput](http://mbenford.github.io/ngTagsInput/gettingstarted)
+Michael Benford's [ngTagsInput](http://mbenford.github.io/ngTagsInput/gettingstarted)
+
+Dileep M's Pixel Icons from [The Noun Project](https://thenounproject.com/dil33pm/)
 
 # Try it out
 
