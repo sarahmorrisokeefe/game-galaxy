@@ -14,7 +14,7 @@ KillerCodeMonkey's ng-Quill Component (https://github.com/KillerCodeMonkey/ng-qu
 
 Michael Bromley's Disqus directive (https://github.com/michaelbromley/angularUtils/tree/master/src/directives/disqus)
 
-Simon Carless and MobyGames/MobyGames API (http://www.mobygames.com/)
+[Simon Carless and MobyGames/MobyGames API](http://www.mobygames.com/)
 
 ngSanitize (https://docs.angularjs.org/api/ngSanitize)
 
