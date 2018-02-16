@@ -20,8 +20,8 @@ angular
       function frame() {
         if (width >= 100) {
           $window.clearInterval(id);
-          document.getElementById('content').style.display='block';
-          document.getElementById('myProgress2').style.display='none';          
+          document.getElementById('content').style.visibility='visible';
+          document.getElementById('myProgress2').style.visibility='hidden';          
         } else {
           width++; 
           elem.style.width = width + '%'; 
