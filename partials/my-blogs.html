@@ -13,18 +13,84 @@
   <a href="#!/blogs/new"><button class="btn btn-success top-spacer">Share your thoughts! Write a new post now</button></a>
 </div>
 
+<div id="dashboard-flex">
+
 <div class="card-deck articleBox">
     <div class="card right-spacer myBlogsArticle" ng-repeat="blog in blogs">
-      <img class="card-img-top" src="{{blog.header}}" alt="Card image cap">
+      <img class="card-img-top" ng-src="{{blog.header}}" alt="Card image cap">
       <div class="card-body">
+        <p style="visibility:hidden">{{blog.id}}</p>
         <h5 class="card-title">{{blog.title}}</h5>
         <p class="card-text"></p>
         <a href="#!/blogs/{{blog.id}}"><button class="btn btn-outline-info">Read</button></a>
         <a href="#!/blogs/{{blog.id}}/edit"><button class="btn btn-outline-success">Edit</button></a>        
-        <a href=""><button class="btn btn-outline-warning" ng-click="deleteThis(blog.id)">Delete</button></a>        
+        <a href=""><button class="btn btn-outline-warning" ng-click="readyToDelete(event)">Delete</button></a>        
       </div>
       <div class="card-footer">
         <small class="text-muted">Last updated {{blog.date}}</small>
+      </div>
+    </div>
+</div>
+
+<div id="friends-flex-child">
+  <br>
+    <div id="requests-box">
+      <h4 class="top-pad eightbit">Requests</h4>
+      <br>
+      <div class="card dash-friend-card" ng-repeat="request in requests">
+          <div class="card-body friends-list-flex" ng-repeat="(key, value) in request">
+            <img ng-src="{{value.customPhoto}}" class="dash-list-user-img bot-spacer"> 
+            <div>
+              <div>         
+                <a class="no-bot-pad no-margin" href="#!/community/view/{{value.key}}"><p>{{value.nickname}}</p></a>
+              </div>  
+              <div>
+                  <button type="button" class="btn-sm btn-success" ng-click=deleteThis(armForDelete.id)>Accept</button>
+                  <button type="button" class="btn-sm btn-warning" data-dismiss="modal">Deny</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <br>
+    </div>
+  <br>  
+    <div id="friends-box">
+        <h4 class="top-pad eightbit">Friends</h4>
+        <br>
+        <div class="card dash-friend-card" ng-repeat="friend in friends">
+            <div class="card-body friends-list-flex" ng-repeat="(key, value) in friend">
+              <img ng-src="{{value.customPhoto}}" class="dash-list-user-img">
+              <div>
+                <p class="no-bot-pad">{{value.nickname}}</p>
+                <p class="fancy no-bot-pad">({{value.formal}})</p>
+                <a class="no-bot-pad no-margin" href="#!/community/view/{{value.key}}"><p>View Profile</p></a>
+              </div>
+              <a><h2 class="eightbit delete-friend">X</h2></a>
+            </div>
+        </div>
+        <br>
+    </div> 
+</div>
+
+
+</div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete "{{armForDelete.title}}"</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure? There is no turning back.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" ng-click=deleteThis(armForDelete.id)>Delete Blog</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>

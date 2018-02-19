@@ -72,6 +72,42 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
     });
   }
 
-  return { addNewUser, getAllUsers, getSingleUser, checkForUser, updateUser };
+  function checkForUserNoArray(uid) {
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/users.json?orderBy="uid"&equalTo="${uid}"`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  function getFriends(key) {
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/users/${key}/friends.json`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  function getRequests(key) {
+    return $q((resolve,reject) => {
+      $http.get(`${FBUrl}/users/${key}/requests.json`)
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  return { addNewUser, getAllUsers, getSingleUser, checkForUser, updateUser, getFriends, checkForUserNoArray, getRequests };
 
 });

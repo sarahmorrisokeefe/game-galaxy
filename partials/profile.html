@@ -29,7 +29,7 @@
       <input type="text" class="form-control" id="customPhoto" ng-model="user.customPhoto">
       <div class="center margin">
         <p class="fancy upscale">Profile picture preview:</p>
-        <img class="preview" src="{{user.customPhoto}}" ng-if="user.customPhoto">
+        <img class="preview" ng-src="{{user.customPhoto}}" ng-if="user.customPhoto">
       </div>
     </div>
   </form>

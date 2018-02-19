@@ -2,7 +2,13 @@
 
 angular
   .module('GameGalaxy')
-  .controller('BlogCtrl', function($scope, BlogsFactory, $routeParams, GamesFactory, $location, $rootScope, UserFactory) {
+  .controller('BlogCtrl', function($scope, BlogsFactory, $routeParams, GamesFactory, $location, $rootScope, UserFactory, $window) {
+
+    $scope.disqusConfig = {
+      disqus_shortname: `gamegalaxy`,
+      disqus_identifier: $routeParams.id,
+      disqus_url: `localhost:8080/#!/blogs/${$routeParams.id}`, 
+    };
 
     $scope.moby = {
       cover: "",
@@ -38,17 +44,9 @@ angular
       });
       UserFactory.checkForUser($scope.thisBlog.uid)
       .then(data => {
-        console.log('user data', data);
         $scope.userKey = data[0].key;  
       });
     });
 
-
-    $scope.disqusConfig = {
-      disqus_shortname: `gamegalaxy`,
-      disqus_identifier: $routeParams.id,
-      disqus_url: `localhost:8080/#!/blogs/${$routeParams.id}`   
-    };
-    
   });
 
