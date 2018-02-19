@@ -11,7 +11,7 @@ angular
     $scope.loginUser = () => {
       AuthFactory.login()
       .then((user) => {
-          $window.location.href = "#!/myblogs/{{user.id}}";
+          $window.location.href = "#!/discover";
       })
       .catch(err => {
       });

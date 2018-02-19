@@ -42,6 +42,67 @@ body {
   width: 120px;
 }
 
+#dashboard-flex {
+  display: flex;
+  margin-top: 4vh;
+}
+
+#friends-flex-child {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 3vw;
+}
+
+.top-pad {
+  padding-top: 4vh;
+}
+
+.bot-pad {
+  padding-top: 2vh;
+}
+
+.dash-list-user-img {
+  max-width: 7vw;
+  max-height: 9vh;
+  border-radius: 100px;
+}
+
+.friends-list-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 1vh;
+}
+
+.delete-friend {
+  padding: 0.5vw;
+  color: red;
+  transition: background 1s;
+  border-radius: 10px;
+  padding-left: 9px;
+  padding-top: 9px;
+}
+
+.delete-friend:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.no-bot-pad {
+  margin-bottom: 0;
+}
+
+.dash-friend-card {
+  margin: 0 2vw !important;
+}
+
+#requests-box, #friends-box {
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 30px;
+  text-align: center;
+}
+
 input {
   border-radius: 15px;
   padding-left: 1vh;
@@ -246,7 +307,7 @@ main {
 
 .card {
   text-align: center !important;
-  margin: 3vh auto !important;
+  margin: 3vh auto;
   transition: box-shadow 0.5s;
   max-width: 70vw !important;
 }
@@ -623,16 +684,7 @@ ul {
   }
 }
 
-@keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }
-@-webkit-keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
-}
-@-moz-keyframes move-twink-back {
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
-}
-
