@@ -36,7 +36,6 @@ angular
         return data.map((key) => {
           UserFactory.checkForUserNoArray(key)
           .then(data3 => {
-            console.log('data', data3);
             let userArr2 = Object.keys(data3).map(userKey => {
               data3[userKey].key = userKey;
               return (data3[userKey]);
@@ -69,7 +68,6 @@ angular
       title: "",
       id: ""
     };
-
 
     firebase.auth().onAuthStateChanged(function(user) {
       if(user) {
