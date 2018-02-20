@@ -10,6 +10,9 @@ angular
     $scope.getFactoryFriends = (userKey) => {
       $scope.callForFriends = UserFactory.getFriends(userKey)
       .then((data) => {
+        if (data === null) {
+          $scope.nofriends = true;
+        } else {
         return data.map((key) => {
           UserFactory.checkForUserNoArray(key)
           .then(data2 => {
@@ -20,12 +23,16 @@ angular
             $scope.friends.push(userArr);
           });
         });
+      }
       });
     };
 
     $scope.getFriendRequests = (userKey) => {
       $scope.callForRequests = UserFactory.getRequests(userKey)
       .then((data) => {
+        if (data === null) {
+          $scope.norequests = true;
+        } else {
         return data.map((key) => {
           UserFactory.checkForUserNoArray(key)
           .then(data3 => {
@@ -37,8 +44,8 @@ angular
             $scope.requests.push(userArr2);
           });
         });
+      }  
       });
-      console.log('requests', $scope.requests);      
     };
 
     firebase.auth().onAuthStateChanged(function(user) {

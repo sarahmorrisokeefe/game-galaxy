@@ -37,6 +37,19 @@
     <div id="requests-box">
       <h4 class="top-pad eightbit">Requests</h4>
       <br>
+      <div class="card dash-friend-card" ng-if="norequests">
+          <div class="card-body friends-list-flex">
+            <img ng-src="../img/sad.png" class="dash-list-user-img bot-spacer"> 
+            <div>
+              <div>         
+                <p>No new requests</p>
+              </div>  
+              <div>
+                  <a href="#!/community"><button type="button" class="btn-sm btn-success">Find Friends</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
       <div class="card dash-friend-card" ng-repeat="request in requests">
           <div class="card-body friends-list-flex" ng-repeat="(key, value) in request">
             <img ng-src="{{value.customPhoto}}" class="dash-list-user-img bot-spacer"> 
@@ -57,6 +70,19 @@
     <div id="friends-box">
         <h4 class="top-pad eightbit">Friends</h4>
         <br>
+        <div class="card dash-friend-card" ng-if="nofriends">
+            <div class="card-body friends-list-flex">
+              <img ng-src="../img/person.png" class="dash-list-user-img bot-spacer"> 
+              <div>
+                <div>         
+                  <p>You need friends!</p>
+                </div>  
+                <div>
+                    <a href="#!/community"><button type="button" class="btn-sm btn-success">Find Friends</button></a>
+                </div>
+              </div>
+            </div>
+        </div>
         <div class="card dash-friend-card" ng-repeat="friend in friends">
             <div class="card-body friends-list-flex" ng-repeat="(key, value) in friend">
               <img ng-src="{{value.customPhoto}}" class="dash-list-user-img">
