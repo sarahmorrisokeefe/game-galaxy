@@ -12,7 +12,7 @@ let authenticate = (AuthFactory) =>
 });
 
 angular
-  .module('GameGalaxy', ["ngRoute", "ngTagsInput", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize", "ngTagsInput"])
+  .module('GameGalaxy', ["ngRoute", "ngTagsInput", "ngQuill", "angularUtils.directives.dirDisqus", "ngSanitize", "ngTagsInput", "ngLodash"])
   .constant("FBUrl", "https://galaxy-game-blog.firebaseio.com/")
   .config($routeProvider => {
     $routeProvider

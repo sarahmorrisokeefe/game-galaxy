@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('MyBlogsCtrl', function($scope, BlogsFactory, $route, UserFactory) {
+  .controller('MyBlogsCtrl', function($scope, BlogsFactory, $route, UserFactory, lodash) {
 
     $scope.friends = [];
     $scope.requests = [];
@@ -96,5 +96,25 @@ angular
       });
     };
 
+    $scope.removeRequest = (requestID) => {
+      $scope.getUser = firebase.auth().currentUser;      
+      UserFactory.checkForUser($scope.getUser.uid)
+      .then(data => {
+        $scope.user.key = data[0].key;
+        console.log('scope viewuser key', $scope.user.key);   
+        UserFactory.getRequests($scope.user.key)
+        .then(data => {
+          console.log('got requests', data);
+          $scope.newData = lodash.pull(data, requestID);
+          console.log('after lodash pull', $scope.newData);
+          UserFactory.addRequests($scope.user.key, data)
+          .then(() => {
+            console.log('fuck');
+          });
+        });
+               
+      }); 
+
+    };
 
   });
