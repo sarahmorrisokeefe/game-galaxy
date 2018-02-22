@@ -133,10 +133,25 @@ angular
               console.log('friend request accepted');
             });
           }
-          // UserFactory.addRequests($scope.user.key, data)
-          // .then(() => {
-          //   console.log('friend request accepted');
-          // });
+        });     
+      }); 
+    };
+
+    $scope.removeFriend = (requestID) => {
+      $scope.getUser = firebase.auth().currentUser;      
+      UserFactory.checkForUser($scope.getUser.uid)
+      .then(data => {
+        $scope.user.key = data[0].key;
+        console.log('scope-view user key', $scope.user.key);   
+        UserFactory.getFriends($scope.user.key)
+        .then(data => {
+          console.log('got requests', data);
+          $scope.newData = lodash.pull(data, requestID);
+          console.log('friends after lodash pull', $scope.newData);
+          UserFactory.deleteFriend($scope.user.key, data)
+          .then(() => {
+            console.log('friend mother fucking deleeeted');
+          });
         });     
       }); 
     };
