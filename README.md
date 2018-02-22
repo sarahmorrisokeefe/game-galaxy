@@ -31,6 +31,8 @@ Michael Benford's [ngTagsInput](http://mbenford.github.io/ngTagsInput/gettingsta
 
 Dileep M's Pixel Icons from [The Noun Project](https://thenounproject.com/dil33pm/)
 
+Rockabox Media's [ngLodash](https://github.com/rockabox/ng-lodash)
+
 # Try it out
 
 Visit https://galaxy-game-blog.firebaseapp.com/#!/home to try it out yourself
