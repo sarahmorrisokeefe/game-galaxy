@@ -54,9 +54,7 @@ angular
 
     $scope.submitBlog = () => {
       BlogsFactory.submitNewBlog($scope.blog);
-      $('.alert').alert();
       $scope.popTheToast();
-      $window.location.href = "#!/home";
     };
 
     firebase.auth().onAuthStateChanged(function(user) {

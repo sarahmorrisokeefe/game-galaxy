@@ -82,17 +82,17 @@ angular
       }
     });
 
-    $scope.readyToDelete = ($event) => { 
+    $scope.readyToDelete = () => { 
       $('#myModal').modal('show');
-      $scope.armForDelete.id = $event.target.parentElement.parentElement.children[0].innerHTML;
-      $scope.armForDelete.title = $event.target.parentElement.parentElement.children[1].innerHTML;
+      $scope.armForDelete.id = event.target.parentElement.parentElement.children[0].innerHTML;
+      $scope.armForDelete.title = event.target.parentElement.parentElement.children[1].innerHTML;
     };
 
     $scope.deleteThis = id => {
       $('#myModal').modal('hide');
       BlogsFactory.deleteBlog(id)
       .then( () => {
-        // $route.reload();
+        $route.reload();
       });
     };
 
