@@ -109,12 +109,36 @@ angular
           console.log('after lodash pull', $scope.newData);
           UserFactory.addRequests($scope.user.key, data)
           .then(() => {
-            console.log('fuck');
+            console.log('friend request denied');
           });
-        });
-               
+        });     
       }); 
+    };
 
+    $scope.confirmFriend = (requestID) => {
+      $scope.getUser = firebase.auth().currentUser;      
+      UserFactory.checkForUser($scope.getUser.uid)
+      .then(data => {
+        $scope.user.key = data[0].key;
+        console.log('scope viewuser key', $scope.user.key);   
+        UserFactory.getFriends($scope.user.key)
+        .then(data => {
+          console.log('got friends', data);
+          if (data === null) {
+            // $scope.newData = data.push(requestID);
+            $scope.newData = [requestID];          
+            console.log('data after friendpush', $scope.newData);
+            UserFactory.updateFriends($scope.user.key, $scope.newData)
+              .then(() => {
+              console.log('friend request accepted');
+            });
+          }
+          // UserFactory.addRequests($scope.user.key, data)
+          // .then(() => {
+          //   console.log('friend request accepted');
+          // });
+        });     
+      }); 
     };
 
   });

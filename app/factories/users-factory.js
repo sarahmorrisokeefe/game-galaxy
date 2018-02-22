@@ -96,6 +96,30 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
     });
   }
 
+  function updateFriends(key, newFriendsArray) {
+    return $q((resolve,reject) => {
+      $http.put(`${FBUrl}/users/${key}/friends.json`, JSON.stringify(newFriendsArray))
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
+  function deleteFriend(key, requestID) {
+    return $q((resolve,reject) => {
+      $http.delete(`${FBUrl}/users/${key}/friends/${requestID}.json`)
+      .then(() => {
+        resolve();
+      })
+      .catch(error => {
+        reject(error);
+      });
+    });
+  }
+
   function getRequests(key) {
     return $q((resolve,reject) => {
       $http.get(`${FBUrl}/users/${key}/requests.json`)
@@ -132,6 +156,6 @@ angular.module("GameGalaxy").factory("UserFactory", (FBUrl, $http, $q) => {
     });
   }
 
-  return { addNewUser, getAllUsers, getSingleUser, checkForUser, updateUser, getFriends, checkForUserNoArray, getRequests, addRequests, deleteRequest };
+  return { addNewUser, getAllUsers, getSingleUser, checkForUser, updateUser, getFriends, checkForUserNoArray, getRequests, addRequests, deleteRequest, updateFriends };
 
 });
