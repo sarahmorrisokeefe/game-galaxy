@@ -125,12 +125,26 @@ angular
         .then(data => {
           console.log('got friends', data);
           if (data === null) {
-            // $scope.newData = data.push(requestID);
             $scope.newData = [requestID];          
             console.log('data after friendpush', $scope.newData);
             UserFactory.updateFriends($scope.user.key, $scope.newData)
               .then(() => {
               console.log('friend request accepted');
+              UserFactory.getRequests($scope.user.key)
+              .then((data) => {
+                console.log('got requests after confirm friend', data);
+              });
+            });
+          } else {
+            $scope.updateData = data.push(requestID);
+            console.log('data after friendpush', $scope.updateData);
+            UserFactory.updateFriends($scope.user.key, $scope.updateData)
+              .then(() => {
+              console.log('friend request accepted');
+              UserFactory.getRequests($scope.user.key)
+              .then((data) => {
+                console.log('got requests after confirm friend', data);
+              });
             });
           }
         });     

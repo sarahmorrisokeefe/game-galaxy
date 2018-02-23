@@ -2,7 +2,7 @@
 
 angular
   .module('GameGalaxy')
-  .controller('ViewProfileCtrl', function($scope, UserFactory, $routeParams, BlogsFactory, AuthFactory) {
+  .controller('ViewProfileCtrl', function($scope, UserFactory, $routeParams, BlogsFactory, AuthFactory, lodash, $window) {
 
     $scope.title = "View User Profile";
 
@@ -10,10 +10,19 @@ angular
 
     $scope.requestsHolder = '';
 
+    $scope.popTheToast = () => {
+      let toast = document.getElementById("toastAlertBlue");
+      toast.className = "show";
+      $window.setTimeout(function() {toast.className = toast.className.replace("show", "");}, 3000);
+    };
+
+
     $scope.sendFriendRequest = () => {
       UserFactory.addRequests($routeParams.key, $scope.requestsHolder)
       .then(() => {
-        console.log("request sent!");
+        $("#requestBtn").html("Request Sent");
+        $('#requestBtn').attr('disabled', 'disabled');
+        $scope.popTheToast();
       });
     };
 
@@ -31,10 +40,9 @@ angular
         }
       });
 
-      // Friend request mess
+      // Add Toast and update button on request send
 
       firebase.auth().onAuthStateChanged(function(user) {
-        // $scope.$apply($scope.user = true);
         $scope.user = user;
         UserFactory.checkForUser($scope.user.uid)
         .then(data => {
@@ -43,17 +51,31 @@ angular
           $scope.user.id = data[0].uid;
           $scope.user.key = data[0].key;
           console.log('scope user id', $scope.user.id);
-          console.log('scope viewuser key', $scope.thisUser.key);          
-          $scope.requestsHolder.push($scope.user.id);                         
-          UserFactory.getRequests($scope.thisUser.key)
-          .then(data => {
-            console.log('getRequests data', data);
-            $scope.requestsHolder.push(Object.values(data));
-            // data.forEach(function(item) {
-            //   $scope.requestsHolder.push(item);
-            // });
-            console.log('requests at end', $scope.requestsHolder);
-          });
+          console.log('scope viewuser key', $scope.thisUser.key);
+          if ($scope.user.id === $scope.thisUser.uid) {
+            // console.log('IT REALLY IS YOU');
+            $("#requestBtn").html("Hey, it's you! :)");
+            $('#requestBtn').attr('disabled', 'disabled');
+          } else {
+            $scope.requestsHolder.push($scope.user.id);                         
+            UserFactory.getRequests($scope.thisUser.key)
+            .then(data => {
+              if (data === null) {
+                data = {};
+              }
+              console.log('getRequests data', data);
+              $scope.requestsHolder.push(Object.values(data));
+              console.log('requestHolder at end', $scope.requestsHolder);
+              console.log('requestHolder[1]', $scope.requestsHolder[1]);
+              if (lodash.includes($scope.requestsHolder[1], $scope.user.id)) {
+                console.log('already requested');
+                $("#requestBtn").html("Request Sent");
+                $('#requestBtn').attr('disabled', 'disabled');
+              } else {
+                console.log('no request sent');
+              }
+            });
+          } 
         });
       });
     });

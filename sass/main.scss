@@ -581,7 +581,22 @@ ul {
   top: 10vh; 
 }
 
-#toastAlert.show {
+#toastAlertBlue {
+  visibility: hidden;
+  max-height: 4vh;
+  font-size: 1em;
+  background-color: rgb(38, 68, 151);
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 3vh 3vw 6vh;
+  position: fixed;
+  z-index: 100; 
+  right: 2vw; 
+  top: 10vh; 
+}
+
+#toastAlert.show, #toastAlertBlue.show {
   visibility: visible;
   animation: fadein 0.5s, fadeout 0.5s 3s;
 }
