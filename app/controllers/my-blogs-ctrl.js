@@ -141,7 +141,8 @@ angular
               console.log('friends list updated for other user');
             });
           } else {
-            $scope.friendsUpdateData = data.push($scope.getUser.uid);
+            data.push($scope.getUser.uid);
+            $scope.friendsUpdateData = data;
             console.log('friends data after friendpush', $scope.friendsUpdateData);
             UserFactory.updateFriends($scope.friendData[0], $scope.friendsUpdateData)
               .then(() => {
@@ -169,7 +170,8 @@ angular
               });
             });
           } else {
-            $scope.updateData = data.push(requestID);
+            data.push(requestID);
+            $scope.updateData = data;
             console.log('data after friendpush', $scope.updateData);
             UserFactory.updateFriends($scope.user.key, $scope.updateData)
               .then(() => {

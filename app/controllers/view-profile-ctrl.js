@@ -81,6 +81,7 @@ angular
               $scope.requestsHolder.push(Object.values(data));
               console.log('requestHolder at end', $scope.requestsHolder);
               console.log('requestHolder[1]', $scope.requestsHolder[1]);
+              // TODO: and another if that check's if user.id is already in your friends, if so change button to say "FRIENDS"
               if (lodash.includes($scope.requestsHolder[1], $scope.user.id)) {
                 console.log('already requested');
                 $("#requestBtn").html("Request Sent");
