@@ -13,7 +13,7 @@ angular
         if (data === null) {
           $scope.nofriends = true;
         } else {
-        return data.map((key) => {
+        return data.map( (key) => {
           UserFactory.checkForUserNoArray(key)
           .then(data2 => {
             let userArr = Object.keys(data2).map(userKey => {
@@ -49,14 +49,22 @@ angular
 
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-          $scope.$apply($scope.user = true);
-          $scope.user = user;
-          UserFactory.checkForUser($scope.user.uid)
-          .then(data => {
+        $scope.$apply($scope.user = true);
+        $scope.user = user;
+        UserFactory.checkForUser($scope.user.uid)
+        .then(data => {
+          console.log('data for noob length = 0', data);
+          if (data.length === 0) {
+            $scope.noob = true;
+            console.log('scope noob', $scope.noob);
+            return;
+          } else {
+            $scope.noob = false;
             $scope.user.key = data[0].key;
             $scope.getFactoryFriends($scope.user.key);
-            $scope.getFriendRequests($scope.user.key);            
-            });
+            $scope.getFriendRequests($scope.user.key);       
+          }
+        });
       } else {
           $scope.$apply($scope.user = false);
       }
@@ -109,14 +117,39 @@ angular
           console.log('after lodash pull', $scope.newData);
           UserFactory.addRequests($scope.user.key, data)
           .then(() => {
-            console.log('friend request denied');
+            // page reload? pop toast?
           });
         });     
       }); 
     };
 
     $scope.confirmFriend = (requestID) => {
-      $scope.getUser = firebase.auth().currentUser;      
+      $scope.removeRequest(requestID);
+      $scope.getUser = firebase.auth().currentUser;   
+      UserFactory.checkForUserNoArray(requestID)
+      .then(data => {
+        $scope.friendData = Object.keys(data);
+        console.log('get friend with uid', $scope.friendData);
+        UserFactory.getFriends($scope.friendData[0])
+        .then(data => {
+          console.log('friends user array', data);
+          if (data === null) {
+            $scope.friendsNewData = [$scope.getUser.uid];          
+            console.log('friends data after friendpush', $scope.friendsNewData);
+            UserFactory.updateFriends($scope.friendData[0], $scope.friendsNewData)
+              .then(() => {
+              console.log('friends list updated for other user');
+            });
+          } else {
+            $scope.friendsUpdateData = data.push($scope.getUser.uid);
+            console.log('friends data after friendpush', $scope.friendsUpdateData);
+            UserFactory.updateFriends($scope.friendData[0], $scope.friendsUpdateData)
+              .then(() => {
+              console.log('friends list updated for other user');
+            });
+          }
+        });
+      });   
       UserFactory.checkForUser($scope.getUser.uid)
       .then(data => {
         $scope.user.key = data[0].key;
@@ -164,7 +197,7 @@ angular
           console.log('friends after lodash pull', $scope.newData);
           UserFactory.deleteFriend($scope.user.key, data)
           .then(() => {
-            console.log('friend mother fucking deleeeted');
+            // reload page? pop toast?
           });
         });     
       }); 

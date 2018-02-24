@@ -46,6 +46,21 @@ angular
         $scope.user = user;
         UserFactory.checkForUser($scope.user.uid)
         .then(data => {
+          UserFactory.getRequests($scope.user.key)
+          .then((data) => {
+            if (lodash.includes(data, $scope.thisUser.uid)) {
+              $("#requestBtn").html("They requested you! Use Dashboard to respond");
+              $('#requestBtn').attr('disabled', 'disabled');
+            }
+          });
+          UserFactory.getFriends($scope.user.key)
+          .then((data) => {
+            console.log('get friends', data);
+            if (lodash.includes(data, $scope.thisUser.uid)) {
+              $("#requestBtn").html("You are already friends! 👻");
+              $('#requestBtn').attr('disabled', 'disabled');
+            }
+          });
           $scope.requestsHolder = [];
           console.log('checkForUser data', data);
           $scope.user.id = data[0].uid;
@@ -53,7 +68,6 @@ angular
           console.log('scope user id', $scope.user.id);
           console.log('scope viewuser key', $scope.thisUser.key);
           if ($scope.user.id === $scope.thisUser.uid) {
-            // console.log('IT REALLY IS YOU');
             $("#requestBtn").html("Hey, it's you! :)");
             $('#requestBtn').attr('disabled', 'disabled');
           } else {

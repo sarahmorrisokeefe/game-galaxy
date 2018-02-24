@@ -31,7 +31,12 @@ angular
           $scope.user = user;
           UserFactory.checkForUser($scope.user.uid)
           .then(data => {
-            $scope.user.key = data[0].key;
+            console.log(data[0]);
+            if (data[0] === undefined) {
+              return;
+            } else {
+              $scope.user.key = data[0].key;
+            }
           });
       } else {
           $scope.$apply($scope.user = false);
