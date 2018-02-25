@@ -30,8 +30,6 @@ angular
       .then(profile => {
       profile.key = $routeParams.key;
       $scope.thisUser = profile;  
-      console.log('scope this user', $scope.thisUser);
-      // $scope.requestsHolder.push($scope.thisUser.uid);   
       BlogsFactory.getUsersBlogs($scope.thisUser.uid)
       .then(blogs => {
         $scope.blogs = blogs;
@@ -55,18 +53,14 @@ angular
           });
           UserFactory.getFriends($scope.user.key)
           .then((data) => {
-            console.log('get friends', data);
             if (lodash.includes(data, $scope.thisUser.uid)) {
               $("#requestBtn").html("You are already friends! 👻");
               $('#requestBtn').attr('disabled', 'disabled');
             }
           });
           $scope.requestsHolder = [];
-          console.log('checkForUser data', data);
           $scope.user.id = data[0].uid;
           $scope.user.key = data[0].key;
-          console.log('scope user id', $scope.user.id);
-          console.log('scope viewuser key', $scope.thisUser.key);
           if ($scope.user.id === $scope.thisUser.uid) {
             $("#requestBtn").html("Hey, it's you! :)");
             $('#requestBtn').attr('disabled', 'disabled');
@@ -77,18 +71,11 @@ angular
               if (data === null) {
                 data = {};
               }
-              console.log('getRequests data', data);
               $scope.requestsHolder.push(Object.values(data));
-              console.log('requestHolder at end', $scope.requestsHolder);
-              console.log('requestHolder[1]', $scope.requestsHolder[1]);
-              // TODO: and another if that check's if user.id is already in your friends, if so change button to say "FRIENDS"
               if (lodash.includes($scope.requestsHolder[1], $scope.user.id)) {
-                console.log('already requested');
                 $("#requestBtn").html("Request Sent");
                 $('#requestBtn').attr('disabled', 'disabled');
-              } else {
-                console.log('no request sent');
-              }
+              } 
             });
           } 
         });

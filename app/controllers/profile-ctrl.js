@@ -37,8 +37,10 @@ angular
     };
 
     $scope.clickSubmit = () => {
-      UserFactory.addNewUser($scope.user);
-      $route.reload();
+      UserFactory.addNewUser($scope.user)
+      .then(() => {
+        $route.reload();
+      });
     };
 
     $scope.updateSubmit = () => {
