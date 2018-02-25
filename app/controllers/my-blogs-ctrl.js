@@ -137,17 +137,11 @@ angular
             $scope.friendsNewData = [$scope.getUser.uid];          
             console.log('friends data after friendpush', $scope.friendsNewData);
             UserFactory.updateFriends($scope.friendData[0], $scope.friendsNewData)
-              .then(() => {
-              console.log('friends list updated for other user');
-            });
           } else {
             data.push($scope.getUser.uid);
             $scope.friendsUpdateData = data;
             console.log('friends data after friendpush', $scope.friendsUpdateData);
             UserFactory.updateFriends($scope.friendData[0], $scope.friendsUpdateData)
-              .then(() => {
-              console.log('friends list updated for other user');
-            });
           }
         });
       });   
@@ -166,7 +160,7 @@ angular
               console.log('friend request accepted');
               UserFactory.getRequests($scope.user.key)
               .then((data) => {
-                console.log('got requests after confirm friend', data);
+                $route.reload();
               });
             });
           } else {
@@ -178,7 +172,7 @@ angular
               console.log('friend request accepted');
               UserFactory.getRequests($scope.user.key)
               .then((data) => {
-                console.log('got requests after confirm friend', data);
+                $route.reload();
               });
             });
           }
@@ -187,19 +181,31 @@ angular
     };
 
     $scope.removeFriend = (requestID) => {
-      $scope.getUser = firebase.auth().currentUser;      
+      $scope.getUser = firebase.auth().currentUser;
+      UserFactory.checkForUserNoArray(requestID)
+      .then(data => {
+        $scope.otherUser = Object.keys(data);
+        console.log('other user key', $scope.otherUser);   
+        UserFactory.getFriends($scope.otherUser[0])
+        .then(data => {
+          console.log('got others friends', data);
+          $scope.otherNewData = lodash.pull(data, $scope.getUser.uid);
+          console.log('other friends after lodash pull', $scope.otherNewData);
+          UserFactory.deleteFriend($scope.otherUser[0], $scope.otherNewData);
+        });     
+      });       
       UserFactory.checkForUser($scope.getUser.uid)
       .then(data => {
         $scope.user.key = data[0].key;
         console.log('scope-view user key', $scope.user.key);   
         UserFactory.getFriends($scope.user.key)
         .then(data => {
-          console.log('got requests', data);
+          console.log('got your friends', data);
           $scope.newData = lodash.pull(data, requestID);
           console.log('friends after lodash pull', $scope.newData);
-          UserFactory.deleteFriend($scope.user.key, data)
+          UserFactory.deleteFriend($scope.user.key, $scope.newData)
           .then(() => {
-            // reload page? pop toast?
+            $route.reload();
           });
         });     
       }); 
