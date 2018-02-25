@@ -2,13 +2,6 @@
   {{title}}
 </h4>
 
-<div class="filler-box">
-    <h3 id="fillerText" class="top-spacer midtitle upscale">You haven't written any posts yet :(</h3>
-    <img id="fillerImg" src="../img/sad.png" class="filler-img top-spacer">
-    <br>
-    <a href="#!/blogs/new"><button class="btn btn-outline-success top-spacer">Click here to write your first blog!</button></a>
-  </div>
-
 <div class="center">
   <a href="#!/blogs/new"><button class="btn btn-success top-spacer">Share your thoughts! Write a new post now</button></a>
 </div>
@@ -16,6 +9,14 @@
 <div id="dashboard-flex">
 
 <div class="card-deck articleBox">
+
+    <div class="filler-box">
+      <h3 id="fillerText" class="top-spacer midtitle upscale">You haven't written any posts yet :(</h3>
+      <img id="fillerImg" src="../img/sad.png" class="filler-img top-spacer">
+      <br>
+      <a href="#!/blogs/new"><button class="btn btn-outline-success top-spacer">Click to write your first blog!</button></a>
+    </div>
+
     <div class="card right-spacer myBlogsArticle" ng-repeat="blog in blogs">
       <img class="card-img-top" ng-src="{{blog.header}}" alt="Card image cap">
       <div class="card-body">
@@ -34,9 +35,31 @@
 
 <div id="friends-flex-child">
   <br>
-    <div id="requests-box">
+
+  <div class="filler-box" ng-show="noob" id="noob-box">
+    <h3 id="fillerText" class="top-spacer midtitle upscale">You are a n00b.</h3>
+    <h4>You should fill out a profile people can find you, and so you can make friends!</h4>
+    <img id="fillerImg" src="../img/globe.png" class="filler-img top-spacer">
+    <br>
+    <a href="#!/profile"><button class="btn btn-outline-warning top-spacer">Click to get started!</button></a>
+  </div>
+
+    <div id="requests-box" ng-show="!noob">
       <h4 class="top-pad eightbit">Requests</h4>
       <br>
+      <div class="card dash-friend-card" ng-if="norequests">
+          <div class="card-body friends-list-flex">
+            <img ng-src="../img/sad.png" class="dash-list-user-img bot-spacer"> 
+            <div>
+              <div>         
+                <p>No new requests</p>
+              </div>  
+              <div>
+                  <a href="#!/community"><button type="button" class="btn-sm btn-success">Find Friends</button></a>
+              </div>
+            </div>
+          </div>
+      </div>
       <div class="card dash-friend-card" ng-repeat="request in requests">
           <div class="card-body friends-list-flex" ng-repeat="(key, value) in request">
             <img ng-src="{{value.customPhoto}}" class="dash-list-user-img bot-spacer"> 
@@ -45,8 +68,8 @@
                 <a class="no-bot-pad no-margin" href="#!/community/view/{{value.key}}"><p>{{value.nickname}}</p></a>
               </div>  
               <div>
-                  <button type="button" class="btn-sm btn-success" ng-click=deleteThis(armForDelete.id)>Accept</button>
-                  <button type="button" class="btn-sm btn-warning" data-dismiss="modal">Deny</button>
+                  <button type="button" class="btn-sm btn-success" ng-click="confirmFriend(value.uid)">Accept</button>
+                  <button type="button" class="btn-sm btn-warning" data-dismiss="modal" ng-click="removeRequest(value.uid)">Deny</button>
               </div>
             </div>
           </div>
@@ -54,9 +77,22 @@
       <br>
     </div>
   <br>  
-    <div id="friends-box">
+    <div id="friends-box" ng-show="!noob">
         <h4 class="top-pad eightbit">Friends</h4>
         <br>
+        <div class="card dash-friend-card" ng-if="nofriends">
+            <div class="card-body friends-list-flex">
+              <img ng-src="../img/person.png" class="dash-list-user-img bot-spacer"> 
+              <div>
+                <div>         
+                  <p>You need friends!</p>
+                </div>  
+                <div>
+                    <a href="#!/community"><button type="button" class="btn-sm btn-success">Find Friends</button></a>
+                </div>
+              </div>
+            </div>
+        </div>
         <div class="card dash-friend-card" ng-repeat="friend in friends">
             <div class="card-body friends-list-flex" ng-repeat="(key, value) in friend">
               <img ng-src="{{value.customPhoto}}" class="dash-list-user-img">
@@ -65,7 +101,7 @@
                 <p class="fancy no-bot-pad">({{value.formal}})</p>
                 <a class="no-bot-pad no-margin" href="#!/community/view/{{value.key}}"><p>View Profile</p></a>
               </div>
-              <a><h2 class="eightbit delete-friend">X</h2></a>
+              <a><h2 class="eightbit delete-friend" ng-click="removeFriend(value.uid)">X</h2></a>
             </div>
         </div>
         <br>

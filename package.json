@@ -24,6 +24,7 @@
     "jquery": "^3.3.1",
     "jshint": "^2.9.5",
     "matchdep": "^2.0.0",
+    "ng-lodash": "^0.2.3",
     "ng-quill": "^3.5.1",
     "ng-tags-input": "^3.2.0"
   },

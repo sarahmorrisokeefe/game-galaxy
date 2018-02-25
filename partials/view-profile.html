@@ -12,6 +12,9 @@
     <h5>Favorite Genre: {{thisUser.genre[0]}}</h5>
     <p class="card-text view-user-bio">{{thisUser.bio}}</p>
     <p class="card-text"><small class="text-muted">Date Joined: {{thisUser.joinDate}}</small></p>
+    <br>
+    <button type="submit" class="btn btn-outline-info" ng-click="sendFriendRequest()" id="requestBtn">Send Friend Request</button>
+    <!-- <a href="#!/blogs/{{userBlog.id}}"><button type="submit" class="btn btn-info">Read More</button></a> -->
   </div>
   </div>
 </div>
@@ -37,3 +40,5 @@
       </div>
     </div>
   </div>
+
+<div id="toastAlertBlue" class="upscale">Your request was sent! 👍</div>

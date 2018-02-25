@@ -47,16 +47,14 @@ angular
     };
 
     $scope.popTheToast = () => {
-      var toast = document.getElementById("toastAlert");
+      let toast = document.getElementById("toastAlert");
       toast.className = "show";
       $window.setTimeout(function() {toast.className = toast.className.replace("show", "");}, 3000);
     };
 
     $scope.submitBlog = () => {
       BlogsFactory.submitNewBlog($scope.blog);
-      $('.alert').alert();
       $scope.popTheToast();
-      $window.location.href = "#!/home";
     };
 
     firebase.auth().onAuthStateChanged(function(user) {

@@ -19,6 +19,8 @@ angular
         $scope.user.bio = data[0].bio;
         $scope.user.customPhoto = data[0].customPhoto;
         $scope.user.genre = data[0].genre;
+        $scope.user.requests = data[0].requests;
+        $scope.user.genre = data[0].friends;        
       }
     });
 
@@ -29,12 +31,16 @@ angular
       bio: "",
       customPhoto: "",
       uid: "",
-      joinDate: ""
+      joinDate: "",
+      requests: [],
+      friends: []
     };
 
     $scope.clickSubmit = () => {
-      UserFactory.addNewUser($scope.user);
-      $route.reload();
+      UserFactory.addNewUser($scope.user)
+      .then(() => {
+        $route.reload();
+      });
     };
 
     $scope.updateSubmit = () => {
