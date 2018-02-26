@@ -106,13 +106,16 @@ angular
       $scope.getUser = firebase.auth().currentUser;      
       UserFactory.checkForUser($scope.getUser.uid)
       .then(data => {
-        $scope.user.key = data[0].key;
+        $scope.user = data[0];
+        console.log($scope.user.key);
         UserFactory.getRequests($scope.user.key)
         .then(data => {
+          data = data[0]
           $scope.newData = lodash.pull(data, requestID);
-          UserFactory.addRequests($scope.user.key, data)
+          console.log($scope.newData);
+          UserFactory.addRequests($scope.user.key, $scope.newData)
           .then(() => {
-            // page reload? pop toast?
+            $route.reload();
           });
         });     
       }); 
@@ -181,8 +184,12 @@ angular
         $scope.user.key = data[0].key;
         UserFactory.getFriends($scope.user.key)
         .then(data => {
+          // data = data[0];
+          console.log(data);
           $scope.newData = lodash.pull(data, requestID);
-          UserFactory.deleteFriend($scope.user.key, $scope.newData)
+          console.log($scope.newData);
+          console.log($scope.user.key);
+          UserFactory.updateFriends($scope.user.key, $scope.newData)
           .then(() => {
             $route.reload();
           });
